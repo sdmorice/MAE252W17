@@ -1,9 +1,9 @@
 % Grid Gen_RobotCrap
 % Sam Morice
 
-clear
+%clear
 close all
-clc
+%clc
 
 % Overall Map
 grid_size_x = 3000;
