@@ -1,4 +1,12 @@
-function [outline_x, outline_y] = draw_bot(rpos)
+function [outline_x, outline_y] = draw_bot(rpos, course)
+% Written by Stalefish
+
+
+hold off;
+%show the course
+imagesc(course), axis image off; colormap gray;
+
+hold on;
 
 rad = 0.75/2; % Radius of the robot nose
 
@@ -37,6 +45,6 @@ y_end_3 = outline_y(1);
 outline_x = [outline_x x_end_1 x_end_2 x_end_3];
 outline_y = [outline_y y_end_1 y_end_2 y_end_3];
 
-
+plot(outline_y, outline_x)
 
 end
