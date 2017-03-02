@@ -156,7 +156,7 @@ end
 %   reading
 function specularAng = specularSurface(surface, worldAng, rAngle)
 
-specularAng = 0;
+specularAng = 90;
 obstacleAng = pi/3;
 
 if surface == 0
