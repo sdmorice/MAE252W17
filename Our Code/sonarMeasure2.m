@@ -1,8 +1,10 @@
 function ds =sonarMeasure2(grid_map,rpos,ns, range)
-% Input arguments: 
-%   mapArray: array of 1's and 0's that form environment in which robot is 
+%% Input arguments: 
+%   grid_map: array of 1's and 0's that form environment in which robot is 
 %       traveling
-%       -(1)'s make up obstacles
+%       -greyscale: 
+%           -255: white, no obstacle
+%           -0: black, obstacle
 %       -each point is 1cm (grid size)
 %   rpos = [xpos, ypos, angle]
 %       -angle: measured from x-axis from centerpoint of front of robot
@@ -10,37 +12,45 @@ function ds =sonarMeasure2(grid_map,rpos,ns, range)
 %   ns: number of sensors
 %   range: max distance the sonar can sense, cm
 %
-%   The 
+%   The map has an origin as follows: 
+%       (1, 1) .--------------> Y
+%              |
+%              |
+%              |
+%              |
+%              V
+%              Y
+%   Because of this, we index the grid map as (y, x)
+%
+%   
+%% Function code 
 
-%setup location of the robot 
-rx = rpos(1);                 
-ry = rpos(2);
-rAngle = rpos(3);
-
-sonarBeamAngle = pi/ns;              %angle between two adjacent sensors
+sonarBeamAngle = pi/ns;         %angle between two adjacent sensors
 
 [m, n] = size(grid_map);        %size of map
 
-
+rx = rpos(2);                   %positon of the robot              
+ry = rpos(1);
+rAngle = rpos(3);
 
 %calculate the max and min of map rows and columns that want to search 
     %through, given robot looking in a certain direction
     %so don't have to look through entire array
                               
 %define max and min indexes to search through mapArray
-maxRow = rx + range;
-minRow = rx - range; 
-maxColumn = ry + range;
-minColumn = ry - range; 
+maxX = rx + range;
+minX = rx - range; 
+maxY = ry + range;
+minY = ry - range; 
 
 %target = zeros(m+n, 2);               %need to change size 
 minDistArray = 20000*ones(1, ns);
 
 %iterate through array to find the obstacles, distance and angleof each point 
-for i = max([minRow 1]): min([maxRow m])
-    for j = max([minColumn 1]):min([maxColumn n])
-        if grid_map(i, j) == 1
-            q = q+1;
+for i = max([minX 1]): min([maxX m])
+    for j = max([minY 1]):min([maxY n])
+        if grid_map(j, i) ~= 255
+            
             distPt = sqrt((i - rx)^2 + (j-ry)^2);
             worldAng = atan2(j-ry,i-rx);               %find angle of point - from 0
             
@@ -71,6 +81,8 @@ for i = max([minRow 1]): min([maxRow m])
                 if distPt < minDistArray(sonarPt) 
                     if distPt > range
                         minDistArray(sonarPt) = 0;  %check if inside range
+                    elseif distPt < 10
+                        minDistArray(sonarPt) = 10;                    
                     else
                         minDistArray(sonarPt) = distPt;
                     end
@@ -88,6 +100,43 @@ for i = 1:length(minDistArray)
     end
 end
 
-ds = minDistArray;
+%ds = minDistArray;
 
+%add in uncertianty
+ds = uncertaintyAdd(minDistArray, range);
+
+
+
+end
+
+
+%uncertaintyCalc - adds measure of uncertainty to the already calculated 
+    %values in the array sonarDist
+function arrayWithU = uncertaintyAdd(sonarDist, range)
+%sonarDist - output array with length ns from sonar calculated
+%range is the range of sonar
+%newVals is the array with random uncertainty added to each entry of the
+%sonarDist array
+
+%maxUncertainty = 0.02*range;
+maxUncertainty = 2; 
+arrayWithU = zeros(1, length(sonarDist));
+
+for i = 1:length(sonarDist)
+    
+    u = rand(1)*maxUncertainty;         %calc random uncertainty up to the 
+                                            %val of maxUncertainty
+    sign = round(rand(1));            	%calc value 0 or 1 to get random 
+                                            %add or subtract
+    
+    if sign == 0
+        %subtract uncertainty
+        arrayWithU(i) = sonarDist(i) - u;
+    elseif sign == 1
+        %add uncertainty
+        arrayWithU(i) = sonarDist(i) + u;
+    end
+end
+
+    
 end
