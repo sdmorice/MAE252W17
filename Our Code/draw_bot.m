@@ -1,4 +1,6 @@
 function [outline_x, outline_y] = draw_bot(rpos, course)
+% Written by Stalefish
+
 
 hold off;
 %show the course
