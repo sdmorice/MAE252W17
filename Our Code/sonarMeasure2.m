@@ -81,6 +81,12 @@ for i = max([minX 1]): min([maxX m])
                 %sensed yet
                 if distPt < minDistArray(sonarPt) && distPt <= range
                     
+                    distPt = distPt - 37.5;    
+                                        %take into account the distance
+                                        %from (rx, ry) to the front of the
+                                        %robot, where the sensors are
+                                        %located
+                    
                     %check the angle of the obstacle found
                     if mapVal == 119
                         surface = pi/2;
@@ -96,11 +102,7 @@ for i = max([minX 1]): min([maxX m])
                     if distPt < 10
                         minDistArray(sonarPt) = 10;                    
                     elseif specularAng > 25/180*pi
-                        minDistArray(sonarPt) = distPt - 37.5;
-                                        %take into account the distance
-                                        %from (rx, ry) to the front of the
-                                        %robot, where the sensors are
-                                        %located
+                        minDistArray(sonarPt) = distPt;
                     end
                 end  
             end
