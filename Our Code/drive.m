@@ -1,4 +1,4 @@
-function new_posn =  drive(posn)
+function new_posn =  drive(posn, grid_map)
 %% Written by Magnum
 %Inputs: posn    (posn of robot)
 %        
@@ -26,7 +26,7 @@ d_step = speed*t_step; %distance step per iteration of plot (cm)
 for i=1:d_step:d
     new_posn(1) = old_posn_x + i*d_step*cos(theta);
     new_posn(2) = old_posn_y + i*d_step*cos(theta);
-    draw_bot(posn);
+    draw_bot(posn, grid_map);
     pause(t_step);
 end
     

@@ -1,4 +1,4 @@
-function new_posn = Rotate(posn, alpha_r)
+function new_posn = Rotate(posn, alpha_r, grid_map)
 %% Written by Magnum
 %Inputs: posn    (posn of robot)
 %        alpha_r (rebound angle)
@@ -35,11 +35,11 @@ steps = ceil(delta_angle/w_rad); %the change of angle per iteration,
 for i = 1:steps
     if i<steps
         new_posn(3) = i*w_rad+old_angle;
-        draw_bot(new_posn);
+        draw_bot(new_posn, grid_map);
         pause(.01);
     else
         new_posn(3) = final_angle;
-         draw_bot(new_posn);
+         draw_bot(new_posn, grid_map);
          pause(.01);
     end
 end    
