@@ -1,6 +1,6 @@
 %Written by Rachel Muradian (with assistance from Dan) 
 
-function [distSonar, goalSighted] = sonarMeasure2(grid_map,rpos,ns, range)
+function [distSonar, goalSighted, goalReached] = sonarMeasure2(grid_map,rpos,ns, range)
 %% Input arguments: 
 %   grid_map: array of 1's and 0's that form environment in which robot is 
 %       traveling
@@ -43,7 +43,8 @@ minY = ry - range;
 
 minDistArray = 20000*ones(1, ns);
 
-goalSighted = 0;
+goalSighted = [0,0];
+goalReached = 0;
 
 %iterate through array to find the obstacles, distance and angleof each point 
 for i = max([minX 1]): min([maxX m])
@@ -94,8 +95,13 @@ for i = max([minX 1]): min([maxX m])
                         surface = pi/2;
                     elseif mapVal == 225
                         surface = 0;
-                    elseif mapVal == 15
-                        goalSighted = 1; 
+                    elseif mapVal == 15         %intermediate goal
+                        goalSighted = [1, bodyAng]; 
+                    elseif mapVal ==67          %end goal
+                        goalSighted = [2, bodyAng];
+                        if distPt < 50
+                            goalReached = 1;
+                        end
                     else 
                         surface = pi/3;
                     end
