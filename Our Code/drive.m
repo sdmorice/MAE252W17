@@ -18,6 +18,7 @@ old_posn_y = posn(2); %original y coordinate position
 theta = posn(3); %angle of robot heading (rad)
 final_x = old_posn_x+d*cos(theta); %final distance to be traveled by robot
 final_y = old_posn_y+d*sin(theta);
+new_posn = posn;
 
 speed = 200; %speed of robot (cm/s)
 t_step = .01; %time step per interation of plot (s)

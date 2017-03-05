@@ -50,11 +50,11 @@ goalReached = 0;
 for i = max([minX 1]): min([maxX m])
     for j = max([minY 1]):min([maxY n])
         
-        mapVal = grid_map(j, i);
+        mapVal = grid_map(i, j);
         if mapVal ~= 255
             
             distPt = sqrt((i - rx)^2 + (j-ry)^2);
-            worldAng = atan2(j-ry,i-rx);               
+            worldAng = atan2(-(j-ry),i-rx);               
                                         %find angle of point - from 0
             
             %change worldAng from 0 to pi and 0 to -pi to 0-2pi

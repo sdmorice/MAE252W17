@@ -21,6 +21,7 @@ function new_posn = Rotate(posn, alpha_r, grid_map)
 %                           ++++|++++               
 %    ------------------------------------------
 %% The goods
+new_posn = posn;
 old_angle = posn(3);
 delta_angle = alpha_r-pi/2;
 

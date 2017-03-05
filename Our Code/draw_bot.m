@@ -4,7 +4,7 @@ function [outline_x, outline_y] = draw_bot(rpos, course)
 
 hold off;
 %show the course
-imagesc(rgb2grey(course)), axis image off; colormap gray;
+imshow(course), axis image off; colormap gray;
 
 hold on;
 
