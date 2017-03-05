@@ -37,11 +37,13 @@ for i = 1:steps
     if i<steps
         new_posn(3) = i*w_rad+old_angle;
         draw_bot(new_posn, grid_map);
+        drawnow;
         pause(.01);
     else
         new_posn(3) = final_angle;
-         draw_bot(new_posn, grid_map);
-         pause(.01);
+        draw_bot(new_posn, grid_map);
+        drawnow;
+        pause(.01);
     end
 end    
     
