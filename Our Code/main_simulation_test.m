@@ -1,11 +1,15 @@
 %% Robot Test Script
 
+clear
+clc
+close all
+
 %define robot information 
 range = 500;
 ns = 10;
 
 %initial positon
-rpos = [90, 90, 0];
+rpos = [600, 90, 0];
 goalSighted = [0, 0];
 goalReached = 0;
 

@@ -45,10 +45,14 @@ minDistArray = 20000*ones(1, ns);
 
 goalSighted = [0,0];
 goalReached = 0;
+ 
 
 %iterate through array to find the obstacles, distance and angleof each point 
-for i = max([minX 1]): min([maxX m])
-    for j = max([minY 1]):min([maxY n])
+for i = max([round(minX) 1]): min([round(maxX) m])
+    for j = max([round(minY) 1]):min([round(maxY) n])
+        
+        %disp(i);
+        %disp(j);
         
         mapVal = grid_map(i, j);
         if mapVal ~= 255
