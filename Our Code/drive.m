@@ -28,6 +28,7 @@ for i=1:d_step:d
     new_posn(1) = old_posn_x + i*d_step*cos(theta);
     new_posn(2) = old_posn_y + i*d_step*cos(theta);
     draw_bot(posn, grid_map);
+    drawnow;
     pause(t_step);
 end
     
