@@ -16,6 +16,10 @@ goalReached = 0;
 %map definition 
 grid_map = imread('course with outline.png');
 
+%plot robot
+draw_bot(rpos, grid_map);
+drawnow;
+
 %% Robot Moving Loop
 
 while ~goalReached
