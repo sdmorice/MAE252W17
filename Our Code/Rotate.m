@@ -41,9 +41,15 @@ for i = 1:steps
         pause(.01);
     else
         new_posn(3) = final_angle;
+<<<<<<< HEAD
          draw_bot(new_posn, grid_map);
          drawnow;
          pause(.01);
+=======
+        draw_bot(new_posn, grid_map);
+        drawnow;
+        pause(.01);
+>>>>>>> 785cce5ec65ffa1b5ebe44ffd21e761c0889c8e5
     end
 end    
     
