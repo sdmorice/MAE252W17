@@ -31,8 +31,8 @@ sonarBeamAngle = pi/ns;                 %angle between two adjacent sensors
 
 [m, n] = size(grid_map);                %size of map
 
-rx = rpos(2);                           %positon of the robot              
-ry = rpos(1);
+rx = rpos(1);                           %positon of the robot              
+ry = rpos(2);
 rAngle = rpos(3);
                               
 %define max and min indexes to search through mapArray
@@ -58,7 +58,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
         if mapVal ~= 255
             
             distPt = sqrt((i - rx)^2 + (j-ry)^2);
-            worldAng = atan2(-(j-ry),i-rx);               
+            worldAng = atan2(j-ry,i-rx);               
                                         %find angle of point - from 0
             
             %change worldAng from 0 to pi and 0 to -pi to 0-2pi
