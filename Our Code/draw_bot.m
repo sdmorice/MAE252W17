@@ -1,10 +1,10 @@
-function [outline_x, outline_y] = draw_bot(rpos, course)
+function [outline_x, outline_y] = draw_bot(rpos, course, rgb)
 % Written by Stalefish
 
 
 hold off;
 %show the course
-imshow(course), axis image off; colormap gray;
+imshow(course, rgb), axis image off; %colormap gray;
 
 hold on;
 

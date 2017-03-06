@@ -55,7 +55,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
         %disp(j);
         
         mapVal = grid_map(i, j);
-        if mapVal ~= 255
+        if mapVal ~= 3
             
             distPt = sqrt((i - rx)^2 + (j-ry)^2);
             worldAng = atan2(j-ry,i-rx);               
@@ -110,12 +110,12 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = pi/3;
                     end
                     
-                    specularAng = specularSurface(surface, worldAng, rAngle);
+                   % specularAng = specularSurface(surface, worldAng, rAngle);
                                         %get the specular angle for the 
                                         %measurement
                     if distPt < 10
                         minDistArray(sonarPt) = 10;                    
-                    elseif specularAng > 25/180*pi
+                    else%if specularAng > 25/180*pi
                         minDistArray(sonarPt) = distPt;
                     end
                 end  

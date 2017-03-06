@@ -1,4 +1,4 @@
-function new_posn =  drive(posn, grid_map)
+function new_posn =  drive(posn, grid_map, rgb)
 %% Written by Magnum
 %Inputs: posn    (posn of robot)
 %        
@@ -12,7 +12,7 @@ function new_posn =  drive(posn, grid_map)
 
 
 %% The goods
-d = 50; %distance robot travels per reading (cm)
+d = 6; %distance robot travels per reading (cm)
 old_posn_x = posn(1); %origninal x coordinate position
 old_posn_y = posn(2); %original y coordinate position
 theta = posn(3); %angle of robot heading (rad)
@@ -26,9 +26,9 @@ d_step = speed*t_step; %distance step per iteration of plot (cm)
 
 for i=1:d_step:d
     new_posn(1) = old_posn_x + i*d_step*cos(theta);
-    new_posn(2) = old_posn_y + i*d_step*cos(theta);
-    draw_bot(posn, grid_map);
-    drawnow;
+    new_posn(2) = old_posn_y + i*d_step*sin(theta);
+    draw_bot(new_posn, grid_map, rgb);
+    %drawnow;
     pause(t_step);
 end
     
