@@ -8,7 +8,7 @@ imshow(course, rgb), axis image off; %colormap gray;
 
 hold on;
 
-rad = 75/2; % Radius of the robot nose
+rad = 60/2; % Radius of the robot nose
 
 ort_ang = rpos(3); % Orientation angle of the robot
 
