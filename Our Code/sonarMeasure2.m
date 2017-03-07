@@ -45,6 +45,8 @@ minDistArray = 20000*ones(1, ns);
 
 goalSighted = [0,0];
 goalReached = 0;
+
+robotRadius = 60/2;
  
 
 %iterate through array to find the obstacles, distance and angleof each point 
@@ -88,7 +90,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                 %sensed yet
                 if distPt < minDistArray(sonarPt) && distPt <= range
                     
-                    distPt = distPt - 37.5;    
+                    distPt = distPt - robotRadius;    
                                         %take into account the distance
                                         %from (rx, ry) to the front of the
                                         %robot, where the sensors are
