@@ -95,10 +95,12 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                                         %located
                     
                     %check the angle of the obstacle found
-                    if mapVal == 119
+                    if mapVal == 50
                         surface = pi/2;
-                    elseif mapVal == 225
+                    elseif mapVal == 150
                         surface = 0;
+                    elseif mapval == 100
+                        surface = pi/3;
                     elseif mapVal == 15         %intermediate goal
                         goalSighted = [1, bodyAng]; 
                     elseif mapVal ==67          %end goal
@@ -106,8 +108,6 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         if distPt < 50
                             goalReached = 1;
                         end
-                    else 
-                        surface = pi/3;
                     end
                     
                    % specularAng = specularSurface(surface, worldAng, rAngle);
