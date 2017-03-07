@@ -55,7 +55,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
         %disp(j);
         
         mapVal = grid_map(i, j);
-        if mapVal ~= 3
+        if mapVal == 0
             
             distPt = sqrt((i - rx)^2 + (j-ry)^2);
             worldAng = atan2(j-ry,i-rx);               

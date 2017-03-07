@@ -30,12 +30,12 @@ final_angle = old_angle+alpha_r-pi/2;
 %Omolon Power bot roatates 300 deg/s
 w_deg = 3; %angular rotaion in deg (3deg per .01 seconds)
 w_rad = deg2rad(w_deg); %angular rotation in rad
-steps = ceil(delta_angle/w_rad); %the change of angle per iteration, 
+steps = abs(ceil(delta_angle/w_rad)); %the change of angle per iteration, 
 
 %this for loop, the program plots 3deg moved, then pauses a second
-for i = 1:steps
+for i = 1:steps+1
     if i<steps
-        new_posn(3) = i*w_rad+old_angle;
+        new_posn(3) = sign(delta_angle)*i*w_rad+old_angle;
         draw_bot(new_posn, grid_map, rgb);
         drawnow;
         pause(.01);
