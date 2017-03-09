@@ -30,7 +30,6 @@ while ~goalReached
     
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
 
-<<<<<<< HEAD
     [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
     if goal_found
         robot_goal = goal_2; 
@@ -41,9 +40,6 @@ while ~goalReached
     end
     
     alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);  
-=======
-%    dist_to_goal = 
->>>>>>> 583d7826401bb35c2137b4140f0212cd45a70fff
     
     rpos = Rotate(rpos, alpha_r, grid_map);
     rpos =  drive(rpos, grid_map);
