@@ -57,7 +57,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
         %disp(j);
         
         mapVal = grid_map(i, j);
-        if mapVal == 0
+        if mapVal ~= 255
             
             distPt = sqrt((i - rx)^2 + (j-ry)^2);
             worldAng = atan2(j-ry,i-rx);               
@@ -101,15 +101,11 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = pi/2;
                     elseif mapVal == 150
                         surface = 0;
-                    elseif mapval == 100
-                        surface = pi/3;
-%                     elseif mapVal == 15         %intermediate goal
-%                         goalSighted = [1, bodyAng]; 
-%                     elseif mapVal ==67          %end goal
-%                         goalSighted = [2, bodyAng];
-%                         if distPt < 50
-%                             goalReached = 1;
-%                         end
+%                     elseif mapVal == 100
+%                         surface = pi/4;
+                    else 
+                        %bogus val for if read 0
+                        surface = pi*2;
                     end
                     
                    specularAng = specularSurface(surface, worldAng, rAngle);
@@ -175,7 +171,7 @@ end
 function specularAng = specularSurface(surface, worldAng, rAngle)
 
 specularAng = 90;
-obstacleAng = pi/3;
+obstacleAng = pi/4;
 
 if surface == 0
     if worldAng >=0 && worldAng < pi/2
@@ -183,19 +179,19 @@ if surface == 0
     elseif worldAng >= pi/2 && worldAng < pi
         specularAng = pi - worldAng;
     elseif worldAng >= pi && worldAng< 3*pi/2
-        specularAng = world - pi;
+        specularAng = worldAng - pi;
     else
-        specularAng = 2*pi - world;     
+        specularAng = 2*pi - worldAng;     
     end
 elseif surface == pi/2
     if worldAng >=0 && worldAng < pi/2
-        specularAng = 90 - world;
+        specularAng = 90 - worldAng;
     elseif worldAng >= pi/2 && worldAng < pi
-        specularAng = world - pi/2;
+        specularAng = worldAng - pi/2;
     elseif worldAng >= pi && worldAng< 3*pi/2
-        specularAng = 3*pi/2 - world;
+        specularAng = 3*pi/2 - worldAng;
     else
-        specularAng = world - 3*pi/2;     
+        specularAng = worldAng - 3*pi/2;     
     end
 elseif surface == obstacleAng
     if worldAng >=0 && worldAng < pi/2
@@ -203,6 +199,10 @@ elseif surface == obstacleAng
     elseif worldAng >= 3*pi/2 && worldAng< 2*pi
         specularAng = worldAng- (180+obstacleAng);     
     end
+else 
+    %create so that if read a 0 (black) still runs but doesn't recognize
+    %any specular
+    specularAng = 30*pi/180;
 end
 
 end

@@ -27,8 +27,8 @@ if num_sum == 0
     alpha_r = pi/2;
 else
     %add in goal weighting
-    num_sum = num_sum + 1/dist_to_goal*goal_sonar_num;
-    den_sum = den_sum + 1/dist_to_goal;
+    num_sum = num_sum + 1/dist_to_goal(1)*goal_sonar_num;
+    den_sum = den_sum + 1/dist_to_goal(1);
     %calculate rebound angle
     alpha_r = num_sum/den_sum *sonarBeamAngle;
 end 
