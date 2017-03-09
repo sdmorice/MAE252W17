@@ -103,21 +103,21 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = 0;
                     elseif mapval == 100
                         surface = pi/3;
-                    elseif mapVal == 15         %intermediate goal
-                        goalSighted = [1, bodyAng]; 
-                    elseif mapVal ==67          %end goal
-                        goalSighted = [2, bodyAng];
-                        if distPt < 50
-                            goalReached = 1;
-                        end
+%                     elseif mapVal == 15         %intermediate goal
+%                         goalSighted = [1, bodyAng]; 
+%                     elseif mapVal ==67          %end goal
+%                         goalSighted = [2, bodyAng];
+%                         if distPt < 50
+%                             goalReached = 1;
+%                         end
                     end
                     
-                   % specularAng = specularSurface(surface, worldAng, rAngle);
+                   specularAng = specularSurface(surface, worldAng, rAngle);
                                         %get the specular angle for the 
                                         %measurement
                     if distPt < 10
                         minDistArray(sonarPt) = 10;                    
-                    else%if specularAng > 25/180*pi
+                    elseif specularAng > 25/180*pi
                         minDistArray(sonarPt) = distPt;
                     end
                 end  

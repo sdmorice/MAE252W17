@@ -1,15 +1,17 @@
-function alpha_r = rebound_angle(distSonar,ns)
+function alpha_r = rebound_angle(distSonar,ns, rpos, robot_goal)
 
 
 
 %calculate rebound angle
-
 
 %initialize numerator and denomenator values for the rebound angle
 %calculation
 num_sum = 0;
 den_sum = 0;
 sonarBeamAngle = pi/ns;
+
+[dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
+goal_sonar_num = dist_to_goal(2)/sonarBeamAngle;
 
 for i = 1:ns
     num_add = i*distSonar(1,i);
@@ -24,5 +26,9 @@ end
 if num_sum == 0
     alpha_r = pi/2;
 else
+    %add in goal weighting
+    num_sum = num_sum + 1/dist_to_goal*goal_sonar_num;
+    den_sum = den_sum + 1/dist_to_goal;
+    %calculate rebound angle
     alpha_r = num_sum/den_sum *sonarBeamAngle;
 end 

@@ -10,7 +10,6 @@ ns = 10;
 
 %initial positon
 rpos = [710, 90, pi/2];
-goalSighted = [0, 0];
 goalReached = 0;
 
 %goal locations
@@ -30,14 +29,17 @@ drawnow;
 while ~goalReached
     
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
-    alpha_r = rebound_angle(sonarDist, ns);
-    
-%     if goalSighted(1) ==1 || goalSighted(1) == 2
-%         alpha_r = goalSighted(2);
-%         goalSighted(:) = 0; 
-%     end
 
-   dist_to_goal = 
+    [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
+    if goal_found
+        robot_goal = goal_2; 
+        k = k+1; 
+        if k >=2
+            goalReached = 1; 
+        end
+    end
+    
+    alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);  
     
     rpos = Rotate(rpos, alpha_r, grid_map, rgb);
     rpos =  drive(rpos, grid_map, rgb);
