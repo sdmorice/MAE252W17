@@ -1,5 +1,14 @@
 function [outline_x, outline_y, hit] = draw_bot(rpos, grid_map)
 
+% Written by Stalefish
+
+
+hold off;
+%show the course
+imshow(grid_map), axis image off; %colormap gray;
+
+hold on;
+
 hit = 0; 
 
 rad = 60/2; % Radius of the robot nose
@@ -40,12 +49,15 @@ outline_x = [outline_x x_end_1 x_end_2 x_end_3];
 outline_y = [outline_y y_end_1 y_end_2 y_end_3];
 
 for i = 1:length(outline_y)
-    if(grid_map(round(outline_x(i)),round(outline_y(i))) == 0)
+    if outline_x(i) || outline_y(i) < 0
+        hit = 1;
+    elseif(grid_map(round(outline_x(i)),round(outline_y(i))) == 0)
         %if so, return 1
         hit = 1;
-        return;
     end
 end
 
+
+plot(outline_y, outline_x)
 
 end
