@@ -101,20 +101,22 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = pi/2;
                     elseif mapVal == 150
                         surface = 0;
-%                     elseif mapVal == 100
-%                         surface = pi/4;
+                     elseif mapVal == 100
+                         surface = pi/4;
                     else 
                         %bogus val for if read 0
                         surface = pi*2;
                     end
                     
-                   specularAng = specularSurface(surface, worldAng, rAngle);
+                   %specularAng = specularSurface(surface, worldAng, rAngle);
                                         %get the specular angle for the 
                                         %measurement
                     if distPt < 10
                         minDistArray(sonarPt) = 10;                    
-                    elseif specularAng > 25/180*pi
+                    else%if specularAng > 25/180*pi
                         minDistArray(sonarPt) = distPt;
+%                     elseif specularAng <= 25/180*pi
+%                         fprintf('read specular \n');
                     end
                 end  
             end

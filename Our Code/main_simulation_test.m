@@ -8,13 +8,14 @@ close all
 range = 500;
 ns = 10;
 
+
 %initial positon
-rpos = [710, 90, pi/2];
+rpos = [350, 200, pi/2];
 goalReached = 0;
 
 %goal locations
-goal_1 = [721, 60];
-goal_2 = [1340, 680]; 
+goal_1 = [60, 721];
+goal_2 = [680, 1340]; 
 robot_goal = goal_1;
 
 %map definition 
