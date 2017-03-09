@@ -19,10 +19,10 @@ goal_2 = [1340, 680];
 robot_goal = goal_1;
 
 %map definition 
-[grid_map, rgb] = imread('course_bw.png');
+grid_map= color_gry('group_outline_paint.png');
 
 %plot robot
-draw_bot(rpos, grid_map, rgb);
+draw_bot(rpos, grid_map);
 drawnow;
 
 %% Robot Moving Loop
@@ -37,10 +37,9 @@ while ~goalReached
 %         goalSighted(:) = 0; 
 %     end
 
-   dist_to_goal = 
+%    dist_to_goal = 
     
-    rpos = Rotate(rpos, alpha_r, grid_map, rgb);
-    rpos =  drive(rpos, grid_map, rgb);
+    rpos = Rotate(rpos, alpha_r, grid_map);
+    rpos =  drive(rpos, grid_map);
     
 end
-
