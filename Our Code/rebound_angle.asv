@@ -1,0 +1,30 @@
+function alpha_r = rebound_angle(distSonar,ns, rpos, robot_goal)
+
+
+
+%calculate rebound angle
+
+%initialize numerator and denomenator values for the rebound angle
+%calculation
+num_sum = 0;
+den_sum = 0;
+sonarBeamAngle = pi/ns;
+
+[dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
+goal_sonar = dist_to_goal(2)/sonarBeamAngle;
+
+for i = 1:ns
+    num_add = i*distSonar(1,i);
+    num_sum = num_sum+num_add + 1/;
+    
+    den_add = distSonar(1,i);
+    den_sum = den_sum+den_add;
+end
+
+%Calculattng the rebound angle
+%if no objects, keep on going straight    
+if num_sum == 0
+    alpha_r = pi/2;
+else
+    alpha_r = num_sum/den_sum *sonarBeamAngle;
+end 
