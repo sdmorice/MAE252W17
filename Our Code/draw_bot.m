@@ -48,12 +48,15 @@ y_end_3 = outline_y(1);
 outline_x = [outline_x x_end_1 x_end_2 x_end_3];
 outline_y = [outline_y y_end_1 y_end_2 y_end_3];
 
+
 for i = 1:length(outline_y)
-    if outline_x(i) || outline_y(i) < 0
+    if(outline_y(i) < 0)
         hit = 1;
+        disp('out')
     elseif(grid_map(round(outline_x(i)),round(outline_y(i))) == 0)
         %if so, return 1
         hit = 1;
+        disp('hit')
     end
 end
 
