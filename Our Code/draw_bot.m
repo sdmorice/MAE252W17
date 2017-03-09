@@ -1,4 +1,4 @@
-function [outline_x, outline_y, hit] = draw_bot(rpos)
+function [outline_x, outline_y, hit] = draw_bot(rpos, grid_map)
 
 hit = 0; 
 
@@ -40,7 +40,7 @@ outline_x = [outline_x x_end_1 x_end_2 x_end_3];
 outline_y = [outline_y y_end_1 y_end_2 y_end_3];
 
 for i = 1:length(outline_y)
-    if(course(round(outline_x(i)),round(outline_y(i))) == 0)
+    if(grid_map(round(outline_x(i)),round(outline_y(i))) == 0)
         %if so, return 1
         hit = 1;
         return;
