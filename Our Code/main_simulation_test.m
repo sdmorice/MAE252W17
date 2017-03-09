@@ -6,7 +6,7 @@ close all
 
 %define robot information 
 range = 500;
-ns = 10;
+ns = 20;
 
 
 %initial positon
@@ -17,6 +17,7 @@ goalReached = 0;
 goal_1 = [60, 721];
 goal_2 = [680, 1340]; 
 robot_goal = goal_1;
+k = 0;
 
 %map definition 
 grid_map= color_gry('group_outline_paint.png');
