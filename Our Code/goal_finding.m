@@ -8,7 +8,11 @@ if dist_to_goal(2) < 0
 end
 
 %check if essentially reached goal
+<<<<<<< HEAD
 if dist_to_goal(1) < 15
+=======
+if dist_to_goal(1) < 12
+>>>>>>> 5290033d0f8e607e1deb4798f2892e4ad887eb21
     goal_found = 1; 
 else 
     goal_found = 0;

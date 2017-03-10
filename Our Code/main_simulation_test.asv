@@ -6,23 +6,24 @@ close all
 
 %define robot information 
 range = 500;
-ns = 10;
+ns = 20;
+
 
 %initial positon
-rpos = [710, 90, pi/2];
-goalSighted = [0, 0];
+rpos = [350, 200, pi/2];
 goalReached = 0;
 
 %goal locations
-goal_1 = [721, 60];
-goal_2 = [1340, 680]; 
+goal_1 = [60, 721];
+goal_2 = [680, 1340]; 
 robot_goal = goal_1;
+k = 0;
 
 %map definition 
-[grid_map, rgb] = imread('course_bw.png');
+grid_map= color_gry('group_outline_paint.png');
 
 %plot robot
-draw_bot(rpos, grid_map, rgb);
+draw_bot(rpos, grid_map);
 drawnow;
 
 %% Robot Moving Loop
@@ -30,20 +31,21 @@ drawnow;
 while ~goalReached
     
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
+
+    [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
     
-    dist_to_goal(1) = sqrt((rpos(2) - robot_goal(2))^2 + (rpos(1) - robot_goal(1))^2);
-    dist_to_goal(2) = atan2((rpos(2) - robot_goal(2),i-rx);
+    if goal_found
+        robot_goal = goal_2; 
+        k = k+1; 
+        fprintf(k
+        if k >=2
+            goalReached = 1; 
+        end
+    end
     
-    alpha_r = rebound_angle(sonarDist, ns, rpos);
+    alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);  
     
-%     if goalSighted(1) ==1 || goalSighted(1) == 2
-%         alpha_r = goalSighted(2);
-%         goalSighted(:) = 0; 
-%     end
-    
-    
-    rpos = Rotate(rpos, alpha_r, grid_map, rgb);
-    rpos =  drive(rpos, grid_map, rgb);
+    rpos = Rotate(rpos, alpha_r, grid_map);
+    rpos =  drive(rpos, grid_map);
     
 end
-

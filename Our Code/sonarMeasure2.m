@@ -6,6 +6,11 @@ function [distSonar, goalSighted, goalReached] = sonarMeasure2(grid_map,rpos,ns,
 %       traveling
 %       -greyscale: 
 %           -255: white, no obstacle
+%           -50: red (vertical)
+%           -100: green (45)
+%           -150 blue (horizontal)
+%
+%
 %           -0: black, obstacle
 %       -each point is 1cm (grid size)
 %   rpos = [xpos, ypos, angle]
