@@ -8,8 +8,9 @@ close all
 range = 500;
 ns = 10;
 
+
 %initial positon
-rpos = [710, 90, pi/2];
+rpos = [350, 200, pi/2];
 goalReached = 0;
 
 %goal locations
