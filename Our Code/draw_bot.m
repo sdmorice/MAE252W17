@@ -56,7 +56,7 @@ for i = 1:length(outline_y)
     elseif(grid_map(round(outline_x(i)),round(outline_y(i))) == 0)
         %if so, return 1
         hit = 1;
-        disp('hit')
+        %disp('hit')
     end
 end
 

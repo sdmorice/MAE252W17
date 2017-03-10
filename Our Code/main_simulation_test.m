@@ -33,9 +33,11 @@ while ~goalReached
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
 
     [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
+    
     if goal_found
         robot_goal = goal_2; 
         k = k+1; 
+        disp(k);
         if k >=2
             goalReached = 1; 
         end

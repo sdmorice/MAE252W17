@@ -8,7 +8,7 @@ if dist_to_goal(2) < 0
 end
 
 %check if essentially reached goal
-if dist_to_goal(1) < 7
+if dist_to_goal(1) < 12
     goal_found = 1; 
 else 
     goal_found = 0;

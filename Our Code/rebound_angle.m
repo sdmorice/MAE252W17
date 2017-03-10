@@ -9,7 +9,7 @@ function alpha_r = rebound_angle(distSonar,ns, rpos, robot_goal)
 num_sum = 0;
 den_sum = 0;
 sonarBeamAngle = pi/ns;
-k = 1; %weighting values
+k = 10; %weighting values
 
 [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
 goal_sonar_num = dist_to_goal(2)/sonarBeamAngle;
