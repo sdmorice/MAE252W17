@@ -18,6 +18,7 @@ for i = 1:ns
         sensor_index = (i-1)+min_sensor_index;
     else
         sensor_index = (i+1)+min_sensor_index;
+    end
     num_add = sensor_index*sonarBeamAngle*distSonar(1,i);
     num_sum = num_sum+num_add;
     
