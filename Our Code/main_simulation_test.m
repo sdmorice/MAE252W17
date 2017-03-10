@@ -6,7 +6,7 @@ close all
 
 %define robot information 
 range = 500;
-ns = 20;
+ns = 10;
 
 
 %initial positon
@@ -14,7 +14,7 @@ rpos = [350, 200, pi/2];
 goalReached = 0;
 
 %goal locations
-goal_1 = [60, 721];
+goal_1 = [60, 800];
 goal_2 = [680, 1340]; 
 robot_goal = goal_1;
 k = 0;
@@ -26,12 +26,14 @@ grid_map= color_gry('group_outline_paint.png');
 draw_bot(rpos, grid_map);
 drawnow;
 
+
 %% Robot Moving Loop
 
 while ~goalReached
     
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
 
+    
     [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
     
     if goal_found
@@ -43,8 +45,9 @@ while ~goalReached
         end
     end
     
-    alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);  
     
+
+    alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);      
     rpos = Rotate(rpos, alpha_r, grid_map);
     rpos =  drive(rpos, grid_map);
     

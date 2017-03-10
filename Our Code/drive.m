@@ -12,7 +12,7 @@ function new_posn =  drive(posn, grid_map)
 
 
 %% The goods
-d = 6; %distance robot travels per reading (cm)
+d = 10; %distance robot travels per reading (cm)
 old_posn_x = posn(1); %origninal x coordinate position
 old_posn_y = posn(2); %original y coordinate position
 theta = posn(3); %angle of robot heading (rad)
