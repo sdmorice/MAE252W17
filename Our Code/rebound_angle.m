@@ -14,7 +14,10 @@ min_sensor_index = -ns/2;
 sonarBeamAngle = pi/ns;
 
 for i = 1:ns
-    sensor_index = (i-1)+min_sensor_index;
+    if i <= ns/2
+        sensor_index = (i-1)+min_sensor_index;
+    else
+        sensor_index = (i+1)+min_sensor_index;
     num_add = sensor_index*sonarBeamAngle*distSonar(1,i);
     num_sum = num_sum+num_add;
     
