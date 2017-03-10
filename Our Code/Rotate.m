@@ -45,7 +45,7 @@ for i = 1:steps-1
         if new_posn(3) >= 2*pi
             new_posn(3) = new_posn(3)-2*pi;
         elseif new_posn(3) < 0
-            new_posn(3) == 2*pi-new_posn(3)
+            new_posn(3) = 2*pi-new_posn(3)
         end
         
         [x,y,hit]=draw_bot(new_posn, grid_map);
