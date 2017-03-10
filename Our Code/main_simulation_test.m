@@ -10,7 +10,7 @@ ns = 10;
 
 
 %initial positon
-rpos = [350, 200, pi/2];
+rpos = [720, 60, pi/2];
 goalReached = 0;
 
 %goal locations

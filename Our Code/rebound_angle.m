@@ -14,6 +14,8 @@ k = 10; %weighting values
 
 N = -ns/2:ns/2;
 
+k = 1; %weighting values
+
 [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
 goal_sonar_num = dist_to_goal(2)/sonarBeamAngle;
 
