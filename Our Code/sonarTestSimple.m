@@ -6,8 +6,8 @@ close all
 
 range = 500;
 ns = 20;
-robot_goal = [60, 800];
-rpos = [650 400 pi]; 
+robot_goal = [680, 1340]; 
+rpos = [550 900 pi*7/4]; 
 
 %small grid array, not symmetrical to test on 
 grid_map= color_gry('group_outline_paint.png');
@@ -19,7 +19,7 @@ k = 1;
 disp(sonarDist);
 draw_bot(rpos, grid_map);
 pause(2);
-alpha_r = rebound_angle_goal(sonarDist, ns, rpos, robot_goal, range);
+alpha_r = rebound_angle(sonarDist,ns, rpos, robot_goal);
 rpos = Rotate(rpos, alpha_r, grid_map);
 
 disp('rebound angle = '); 
