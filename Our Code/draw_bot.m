@@ -57,6 +57,7 @@ for i = 1:length(outline_y)
         %if so, return 1
         hit = 1;
         %disp('hit')
+        
     end
 end
 
