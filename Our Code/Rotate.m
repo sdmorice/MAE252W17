@@ -29,7 +29,9 @@ delta_angle = alpha_r;
 final_angle = old_angle+alpha_r;
     
 if final_angle >= 2*pi
-        final_angle = final_angle-2*pi;
+    final_angle = final_angle-2*pi;
+elseif final_angle <0 
+    final_angle = final_angle + 2*pi;
 end
        
 %Omolon Power bot roatates 300 deg/s

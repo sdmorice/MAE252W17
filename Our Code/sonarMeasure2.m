@@ -26,9 +26,10 @@ function [distSonar, goalSighted, goalReached] = sonarMeasure2(grid_map,rpos,ns,
 %              |
 %              |
 %              V
-%              Y
-%   Because of this, we index the grid map as (y, x)
-%
+%              x
+%   Because of this, we index the grid map as (x, y)
+%   The map has essentially rotated 90 degrees from the normal cartesian
+%   coordinate system
 %   
 %% Function code 
 
