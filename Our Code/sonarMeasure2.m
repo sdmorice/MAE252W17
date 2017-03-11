@@ -31,6 +31,7 @@ function [distSonar, goalSighted, goalReached] = sonarMeasure2(grid_map,rpos,ns,
 %   The map has essentially rotated 90 degrees from the normal cartesian
 %   coordinate system
 %   
+
 %% Function code 
 
 sonarBeamAngle = pi/ns;                 %angle between two adjacent sensors
