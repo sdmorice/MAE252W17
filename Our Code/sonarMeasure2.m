@@ -226,7 +226,7 @@ elseif surface == pi/2
     
 elseif surface == obstacleAng
     
-    if worldAng >=0 && worldAng < C
+    if worldAng >=0 && worldAng < pi/2
         specularAng = pi/2 - (obstacleAng - worldAng);
     
     elseif worldAng >= 2*pi-obstacleAng && worldAng< 2*pi

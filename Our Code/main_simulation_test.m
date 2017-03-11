@@ -10,13 +10,13 @@ ns = 10;
 
 
 %initial positon
-rpos = [720, 60, pi/2];
+rpos = [60, 500, pi/2];
 goalReached = 0;
 
 %goal locations
-goal_1 = [60, 800];
+%goal_1 = [60, 800];
 goal_2 = [680, 1340]; 
-robot_goal = goal_1;
+robot_goal = goal_2;
 k = 0;
 
 %map definition 
