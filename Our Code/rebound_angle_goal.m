@@ -17,6 +17,10 @@ leftFlag = 0;
 rightFlag =0;
 leftFlag_goal = 0;
 rightFlag_goal =0;
+num_sum_1 = 0;
+num_sum_2 = 0;
+den_sum_1 = 0;
+den_sum_2 = 0;
 
 %want to find rebound angles for both sides of the vision system
 for i = 1:floor(ns/2)
@@ -64,7 +68,8 @@ else
     rightFlag_goal = 1;
 end
 
-if abs(leftFlag-rightFlag) <= 2
+if abs(leftFlag-rightFlag) <= 2 && (leftFlag~=0 || rightFlag~=0)
+    disp('equal weightings') 
     %want the angle of rebound to be in the direction of the goal 
     if leftFlag_goal
         num_sum = num_sum_1;
