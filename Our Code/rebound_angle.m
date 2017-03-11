@@ -1,4 +1,4 @@
-function alpha_r = rebound_angle(distSonar,ns, robot_goal, rpos)
+function alpha_r = rebound_angle(distSonar,ns)
 
 
 

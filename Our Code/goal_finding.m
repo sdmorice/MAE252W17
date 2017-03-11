@@ -28,7 +28,12 @@ end
 to_goal(2) = rpos(3) - worldAng;
 
 %check if essentially reached goal
+<<<<<<< HEAD
 if to_goal(1) < 12
+=======
+
+if dist_to_goal(1) < 15
+>>>>>>> 485ab90992a042232dba509968bd5f9a52d0b182
     goal_found = 1; 
 else 
     goal_found = 0;

@@ -45,9 +45,7 @@ while ~goalReached
         end
     end
     
-    
-
-    alpha_r = rebound_angle(sonarDist, ns, robot_goal, rpos);      
+    alpha_r = rebound_angle(sonarDist, ns);      
     rpos = Rotate(rpos, alpha_r, grid_map);
     rpos =  drive(rpos, grid_map);
     
