@@ -17,15 +17,25 @@ function [to_goal, goal_found] = goal_finding(rpos, robot_goal)
 
 to_goal(1) = sqrt((-rpos(2) + robot_goal(2))^2 + (-rpos(1) + robot_goal(1))^2);
 %world angle
-worldAng = atan2((robot_goal(2)-rpos(2)),(robot_goal(1)-rpos(1)));
+worldGoalAng = atan2((robot_goal(2)-rpos(2)),(robot_goal(1)-rpos(1)));
 
-if worldAng < 0
-    worldAng = worldAng + 2*pi;
+if  2*pi> rpos(3) && rpos(3)>= pi
+    if rpos(3)> worldGoalAng && worldGoalAng >= rpos(3)-pi;
+        to_goal(2) = worldGoalAng - rpos(3);
+    else
+        to_goal(2) = worldGoalAng + 2*pi - rpos(3); 
+    end
+if  pi> rpos(3) && rpos(3) >= 0
+   if rpos(3)+ pi > worldGoalAng && rpos(3) > worldGoalAng
+       to_goal(2) = worldGoalAng - rpos(3);
+   else
+       to_goal(2) = worldGoalAng - 2*pi - rpos(3);
+   end
 end
 
 %robot angle: angle of the robot to the goal 
 %to the left of the center line axis is + angle direction
-to_goal(2) =  worldAng;
+
 
 %check if essentially reached goal
 
