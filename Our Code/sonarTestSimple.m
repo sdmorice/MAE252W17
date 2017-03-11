@@ -1,15 +1,21 @@
+close all 
+clc
+clear
+
 %testing script
 
-range = 500;
+range = 600;
 ns = 10;
 
 %small grid array, not symmetrical to test on 
-gridMap = 255*ones(100, 150);
+gridMap = 255*ones(500, 400);
 gridMap(1,:) = 0; 
-gridMap(:,150) = 0;
-gridMap(100,:) = 0; 
+gridMap(:,400) = 0;
+gridMap(500,:) = 0; 
 gridMap(:, 1) = 0;
-gridMap(25:30, 1:10) = 0;
+gridMap(1:150, 200:300) = 0;
+gridMap(350:500, 200:300)= 0;
+gridMap(447:452, 347:352) = 0; 
 
 k = 1;
 
