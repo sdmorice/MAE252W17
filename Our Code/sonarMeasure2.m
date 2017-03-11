@@ -120,10 +120,11 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                                         %measurement
                     if distPt < 10
                         minDistArray(sonarPt) = 10;                    
-                    else%if specularAng > 25/180*pi
+                    else if specularAng > 25/180*pi
                         minDistArray(sonarPt) = distPt;
-%                     elseif specularAng <= 25/180*pi
-%                         fprintf('read specular \n');
+                     elseif specularAng <= 25/180*pi
+                         minDistArray(sonarPt)= range;
+                         %fprintf('read specular \n');
                     end
                 end  
             end
@@ -176,37 +177,62 @@ end
 end
 
 %% specularSurface calculates the specular angle for a particular sonar 
-%   reading
-function specularAng = specularSurface(surface, worldAng, rAngle)
 
-specularAng = 90;
+function specularAng = specularSurface(surface, worldAng, rAngle)
+%   Inputs: -surface(the angle of the surface)
+%             -worldAng (the sonar beam angle relative to the world
+%                        coordinate system)
+%             -rAngle (the angle of the robot wrt to world cordinate system.  Currently not used
+%   Outputs: specularAng (the angle of the incident sonar beam angle wrt
+%                         the surface)
+
+%specularAng = 90;
 obstacleAng = pi/4;
 
 if surface == 0
     if worldAng >=0 && worldAng < pi/2
-        specularAng = worldAng;
-    elseif worldAng >= pi/2 && worldAng < pi
-        specularAng = pi - worldAng;
-    elseif worldAng >= pi && worldAng< 3*pi/2
-        specularAng = worldAng - pi;
+        specularAng = pi/2-worldAng;
+    
+    elseif worldAng > pi/2 && worldAng <= pi
+        specularAng = worldAng-pi/2;
+    
+    elseif worldAng > pi && worldAng< 3*pi/2
+        specularAng = pi/2-(worldAng - pi);
+    
+    elseif worldAng > 3*pi/2 && worldAng < 2*pi
+        specularAng = worldAng-3*pi/2; 
+    
     else
-        specularAng = 2*pi - worldAng;     
+        specularAng = pi/2;
     end
+    
 elseif surface == pi/2
-    if worldAng >=0 && worldAng < pi/2
-        specularAng = 90 - worldAng;
+    if worldAng >0 && worldAng <= pi/2
+        specularAng = worldAng;
+    
     elseif worldAng >= pi/2 && worldAng < pi
-        specularAng = worldAng - pi/2;
-    elseif worldAng >= pi && worldAng< 3*pi/2
-        specularAng = 3*pi/2 - worldAng;
+        specularAng = pi/2- (worldAng - pi/2);
+    
+    elseif worldAng >= pi && worldAng <= 3*pi/2
+        specularAng = worldAng-pi;
+    elseif worldAng > 3*pi/2 && worldAng < 2*pi
+        specularAng = worldAng - 3*pi/2;
     else
-        specularAng = worldAng - 3*pi/2;     
+        specularAng = pi/2;
     end
+    
 elseif surface == obstacleAng
-    if worldAng >=0 && worldAng < pi/2
-        specularAng = pi/2 - obstacleAng - worldAng;
-    elseif worldAng >= 3*pi/2 && worldAng< 2*pi
-        specularAng = worldAng- (180+obstacleAng);     
+    
+    if worldAng >=0 && worldAng < C
+        specularAng = pi/2 - (obstacleAng - worldAng);
+    
+    elseif worldAng >= 2*pi-obstacleAng && worldAng< 2*pi
+        specularAng = pi/2-(2*pi-worldAng+obstacleAng);    
+    
+    elseif worldAng >= obstacleAng && worldAng < pi/2+obstacleAng
+        specularAng = pi/2-(worldAng-obstacleAng);
+    else
+        specularAng = pi/2;
     end
 else 
     %create so that if read a 0 (black) still runs but doesn't recognize
