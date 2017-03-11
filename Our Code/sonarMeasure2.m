@@ -120,7 +120,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                                         %measurement
                     if distPt < 10
                         minDistArray(sonarPt) = 10;                    
-                    else if specularAng > 25/180*pi
+                    elseif specularAng > 25/180*pi
                         minDistArray(sonarPt) = distPt;
                      elseif specularAng <= 25/180*pi
                          minDistArray(sonarPt)= range;
