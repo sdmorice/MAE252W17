@@ -10,10 +10,10 @@ robot_goal = [450, 350];
 rpos = [275 50 pi/2]; 
 
 %small grid array, not symmetrical to test on 
-gridMap = ones(500, 400);
+gridMap = 255*ones(500, 400);
 gridMap(1,:) = 0; 
 gridMap(:,400) = 0;
-gridMap(400,:) = 0; 
+gridMap(500,:) = 0; 
 gridMap(:, 1) = 0;
 gridMap(1:150, 200:300) = 0;
 gridMap(350:500, 200:300)= 0;
