@@ -4,10 +4,10 @@ close all
 
 %testing script
 
-range = 500;
+range = 150;
 ns = 20;
 robot_goal = [450, 350];
-rpos = [650 400 pi]; 
+rpos = [275 50 pi/2]; 
 
 %small grid array, not symmetrical to test on 
 grid_map= color_gry('group_outline_paint.png');
