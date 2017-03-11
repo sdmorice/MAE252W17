@@ -67,7 +67,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
         if mapVal ~= 255
             
             distPt = sqrt((i - rx)^2 + (j-ry)^2);
-            worldAng = atan2(j-ry, i-rx);               
+            worldAng = atan2(j-ry, i-rx );               
                                         %find angle of point - from 0
             
             %change worldAng from 0 to pi and 0 to -pi to 0-2pi
@@ -115,7 +115,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = pi*2;
                     end
                     
-                   specularAng = specularSurface(surface, worldAng, rAngle);
+                   specularAng = pi/2;%specularSurface(surface, worldAng, rAngle);
                                         %get the specular angle for the 
                                         %measurement
                     if distPt < 10 && distPt ~=0
@@ -124,10 +124,10 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         minDistArray(sonarPt) = distPt;
                      elseif specularAng <= 25/180*pi
                          minDistArray(sonarPt)= range;
-%                          fprintf(['Read specular surface at x = %d and',...
-%                          'y = %d.  The specular angle hit the wall at',...
-%                          '%f degrees when the robot was at angle%f', ... 
-%                          'deg\n'],rx, ry, specularAng*180/pi, rAngle*180/pi);
+                         fprintf(['Read specular surface at x = %d and',...
+                         'y = %d.  The specular angle hit the wall at',...
+                         '%f degrees when the robot was at angle%f', ... 
+                         'deg\n'],rx, ry, specularAng*180/pi, rAngle*180/pi);
                     end
                 end  
             end
@@ -226,7 +226,7 @@ elseif surface == pi/2
     
 elseif surface == obstacleAng
     
-    if worldAng >=0 && worldAng < pi/2
+    if worldAng >=0 && worldAng < C
         specularAng = pi/2 - (obstacleAng - worldAng);
     
     elseif worldAng >= 2*pi-obstacleAng && worldAng< 2*pi

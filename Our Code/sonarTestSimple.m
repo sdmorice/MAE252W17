@@ -1,37 +1,31 @@
-clear 
+close all 
 clc
-close all
+clear
 
 %testing script
 
-range = 500;
-ns = 20;
-robot_goal = [680, 1340]; 
-rpos = [550 900 pi*7/4]; 
+range = 600;
+ns = 10;
 
 %small grid array, not symmetrical to test on 
-grid_map= color_gry('group_outline_paint.png');
+gridMap = 255*ones(500, 400);
+gridMap(1,:) = 0; 
+gridMap(:,400) = 0;
+gridMap(500,:) = 0; 
+gridMap(:, 1) = 0;
+gridMap(1:150, 200:300) = 0;
+gridMap(350:500, 200:300)= 0;
+gridMap(447:452, 347:352) = 0; 
 
 k = 1;
 
-[sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
+for i = 0:pi/2:(2*pi) 
+    rpos = [20 60 i];
+    distSonar = sonarMeasure2(gridMap, rpos, ns, range);
+    figure(k);
+    bar(distSonar);
+    title(i);
+    
+    k = k+1;
+end
 
-disp(sonarDist);
-draw_bot(rpos, grid_map);
-pause(2);
-alpha_r = rebound_angle(sonarDist,ns, rpos, robot_goal);
-rpos = Rotate(rpos, alpha_r, grid_map);
-
-disp('rebound angle = '); 
-disp(alpha_r);
-disp('new rpos = ');
-disp(rpos);
-
-rpos =  drive(rpos, grid_map);
-
-disp('new rpos = ');
-disp(rpos);
-
-figure(2);
-bar(sonarDist);
-title(pi/2);

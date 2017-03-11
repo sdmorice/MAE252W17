@@ -10,17 +10,18 @@ ns = 10;
 
 
 %initial positon
-rpos = [60, 500, pi/2];
+% rpos = [720, 60, pi/2];
+rpos = [200, 1000, pi/2];
 goalReached = 0;
 
 %goal locations
-%goal_1 = [60, 800];
+goal_1 = [60, 800];
 goal_2 = [680, 1340]; 
 robot_goal = goal_2;
 k = 0;
 
 %map definition 
-grid_map= color_gry('group_outline_paint.png');
+grid_map= color_gry('group_outline_white.png');
 
 %plot robot
 draw_bot(rpos, grid_map);
@@ -46,7 +47,7 @@ while ~goalReached
     end
     
     alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);      
-    rpos = Rotate(rpos, alpha_r, grid_map);
-    rpos =  drive(rpos, grid_map);
+    [rpos, hit] = Rotate(rpos, alpha_r, grid_map);
+    rpos =  drive(rpos, grid_map, hit, robot_goal);
     
 end

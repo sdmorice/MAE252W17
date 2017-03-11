@@ -17,7 +17,7 @@ for i = 1:ns
     if i <= ns/2
         sensor_index = (i-1)+min_sensor_index;
     else
-        sensor_index = (i+1)+min_sensor_index;
+        sensor_index = i+min_sensor_index;
     end
     num_add = sensor_index*sonarBeamAngle*distSonar(1,i);
     num_sum = num_sum+num_add;
@@ -27,21 +27,10 @@ for i = 1:ns
 end
 
  %goal weighting
- 
-[to_goal, goal_found] = goal_finding(rpos, robot_goal);
-%sensor_index_goal = round(to_goal(2)/sonarBeamAngle);
-
-
-maxSonarRead = max(distSonar);
-if to_goal(1)> maxSonarRead
-    to_goal(1) = maxSonarRead;
-end
-
-
-
-k = 100000; 
-num_sum = num_sum + to_goal(2)*k/to_goal(1);
-den_sum = den_sum + k/to_goal(1); 
+% k = 100;
+% [to_goal, goal_found] = goal_finding(rpos, robot_goal);
+% num_sum = num_sum - to_goal(2)*k/to_goal(1);
+% den_sum = den_sum - k/to_goal(1); 
 
 %Calculattng the rebound angle
 %if no objects, keep on going straight    
