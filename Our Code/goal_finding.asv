@@ -23,12 +23,8 @@ worldAng = atan2((robot_goal(2) - rpos(2)),(robot_goal(1) - rpos(1)));
 %to the left of the center line axis is + angle direction
 to_goal(2) = rpos(3) - worldAng;
 
-%make sure is in the range pi/2--pi/2
 if to_goal(2)>pi/2
-    to_goal(2) = to_goal(2) -pi;
-elseif to_goal(2) < -pi/2
-    to_goal(2) = to_goal(2)+ pi;
-end
+    
 
 %check if essentially reached goal
 
