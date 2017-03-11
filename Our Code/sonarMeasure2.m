@@ -124,7 +124,10 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         minDistArray(sonarPt) = distPt;
                      elseif specularAng <= 25/180*pi
                          minDistArray(sonarPt)= range;
-                         %fprintf('read specular \n');
+                         fprintf('Read specular surface at x = %d and' ...
+                         'y = %d.  The specular angle hit the wall at ' ...
+                         '%f degrees when the robot was at angle%f deg\n'...
+                         rx, ry, specularAng*180/pi, rAngle*180/pi);
                     end
                 end  
             end
