@@ -54,7 +54,7 @@ for i = 1:length(outline_y)
     if(outline_y(i) < 0)
         hit = 1;
         disp('out')
-    elseif(grid_map(round(outline_x(i)),round(outline_y(i))) == 0)
+    elseif(grid_map(round(outline_x(i)),round(outline_y(i))) ~= 255)
         %if so, return 1
         hit = 1;
         %disp('hit')
@@ -67,7 +67,7 @@ for i = 1:length(outline_y)
         dist_y = outline_y(i)-rpos(2);
         
         %calculate the angle of the object relative to world map
-        theta_hit = tan(dist_y/dist_x); 
+        theta_hit = atan2(dist_y, dist_x); 
             if  2*pi> rpos(3) && rpos(3)>= pi
                 if rpos(3)> theta_hit && theta_hit >= rpos(3)-pi
                     rel_hit = theta_hit - rpos(3);

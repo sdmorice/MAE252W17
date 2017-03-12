@@ -82,4 +82,3 @@ for j = 1:iter-1
     dist = distj + dist;
 end
 
-dist
