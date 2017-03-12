@@ -13,6 +13,7 @@ max_sensor_index = ns/2;
 min_sensor_index = -ns/2;
 sonarBeamAngle = pi/ns;
 
+
 for i = 1:ns
     if i <= ns/2
         sensor_index = (i-1)+min_sensor_index;
@@ -28,7 +29,7 @@ end
 
  %goal weighting
  k = 10000;
-[to_goal, goal_found] = goal_finding(rpos, robot_goal);
+[to_goal, goalfound] = goal_finding(rpos, robot_goal);
 num_sum = num_sum + to_goal(2)*k/to_goal(1);
 den_sum = den_sum + k/to_goal(1); 
 

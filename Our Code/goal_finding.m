@@ -13,7 +13,7 @@ function [to_goal, goal_found] = goal_finding(rpos, robot_goal)
 %                           ++++|++++               
 %    ------------------------------------------------------
 
-
+goal_found = 0;
 
 to_goal(1) = sqrt((-rpos(2) + robot_goal(2))^2 + (-rpos(1) + robot_goal(1))^2);
 %world angle
@@ -25,7 +25,7 @@ if  2*pi> rpos(3) && rpos(3)>= pi
     else
         to_goal(2) = worldGoalAng + 2*pi - rpos(3); 
     end
-if  pi> rpos(3) && rpos(3) >= 0
+elseif  pi> rpos(3) && rpos(3) >= 0
    if rpos(3)+ pi > worldGoalAng && rpos(3) > worldGoalAng
        to_goal(2) = worldGoalAng - rpos(3);
    else
