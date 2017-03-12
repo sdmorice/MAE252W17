@@ -4,11 +4,9 @@ clear
 clc
 close all
 
-hold all;
-
 %define robot information 
-range = 300 + 30;
-ns = 8;
+range = 500;
+ns = 10;
 iter = 0;
 
 
@@ -19,15 +17,12 @@ goalReached = 0;
 
 %goal locations
 goal_1 = [60, 800];
-goal_2 = [650, 1300]; 
+goal_2 = [650, 1340]; 
 robot_goal = goal_1;
 k = 0;
 
-%start timer of the code
-tic 
-
 %map definition 
-grid_map= color_gry('group_outline_paint_a_variation.png');
+grid_map= color_gry('group_outline_paint.png');
 
 %plot robot
 draw_bot(rpos, grid_map);
@@ -49,7 +44,7 @@ while ~goalReached
         robot_goal = goal_2; 
         k = k+1; 
         disp(k);
-        if k >=2
+        if k >= 2
             goalReached = 1; 
         end
     end
@@ -60,26 +55,17 @@ while ~goalReached
     
     x_save(iter) = rpos(1);
     y_save(iter) = rpos(2);
-    
-    plot(y_save, x_save);
+   
+    plot(y_save(iter), x_save();
     pause(0.01)
-
-    
 end
 
-%stop timer 
-timeRun = toc; 
-disp(timeRun);
 
-% %save plot as figure 
-% saveas(figure1,'plot.jpg'); 
 
-%%plot the path
 dist = 0;
 for j = 1:iter-1
 
     distj = sqrt((x_save(j+1) - x_save(j))^2 + (y_save(j+1) - y_save(j))^2);
     dist = distj + dist;
 end
-
-dist
+fprintf('the robot traveled %i cm',dist)
