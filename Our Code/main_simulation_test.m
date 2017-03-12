@@ -9,14 +9,13 @@ hold all;
 global hit_counter
 hit_counter = 0;
 %define robot information 
-<<<<<<< HEAD
+
 range = 300 + 30;
 ns = 8;
-=======
+
 %adding robot radius 
 range = 200 + 30;
 ns = 10;
->>>>>>> 319357f2c13b0db1d76e25e96c7064a517a961cb
 iter = 0;
 
 
