@@ -34,15 +34,26 @@ for i=1:d_step:d
             old_posn_y_hit = new_posn(2);
             turn = -1*sign(rel_hit); %turn the opposite direction in which
 %                                    the wall was hit            
-            for j=1: d_step: 10
-                new_posn(1) = old_posn_x_hit - j*d_step*cos(theta);
-                new_posn(2) = old_posn_y_hit - j*d_step*sin(theta);
-                [outline_x, outline_y, hit, rel_hit] =draw_bot(new_posn, grid_map);
-                pause(t_step)
-                
+            
+            if abs(rel_hit) <= pi/2
+                for j=1: d_step: 10
+                    new_posn(1) = old_posn_x_hit - j*d_step*cos(theta);
+                    new_posn(2) = old_posn_y_hit - j*d_step*sin(theta);
+                    draw_bot(new_posn, grid_map);
+                    pause(t_step)
+
+                end
+                    new_posn(3) = posn(3)+turn*30*pi/180;
+                break 
+            else
+                  for j=1:d_step: 4
+                        new_posn(1) = old_posn_x_hit + j*d_step*cos(theta);
+                        new_posn(2) = old_posn_y_hit + j*d_step*sin(theta);
+                        draw_bot(new_posn, grid_map);   
+                        pause(t_step)
+                  end
+              break
             end
-                new_posn(3) = posn(3)+turn*20*pi/180;
-            break 
        end
         
        
