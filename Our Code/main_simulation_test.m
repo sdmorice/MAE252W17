@@ -76,7 +76,7 @@ disp(timeRun);
 
 %%plot the path
 dist = 0;
-for j = 1:iter
+for j = 1:iter-1
 
     distj = sqrt((x_save(j+1) - x_save(j))^2 + (y_save(j+1) - y_save(j))^2);
     dist = distj + dist;
