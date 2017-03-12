@@ -11,7 +11,7 @@ hit_counter = 0;
 %define robot information 
 
 range = 300 + 30;
-ns = 8;
+ns = 2;
 
 %adding robot radius 
 range = 200 + 30;
