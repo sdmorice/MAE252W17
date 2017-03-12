@@ -2,8 +2,7 @@ function [outline_x, outline_y, hit] = draw_bot(rpos, grid_map)
 
 % Written by Stalefish
 
-
-hold off;
+hold off
 %show the course
 imshow(grid_map), axis image off; %colormap gray;
 

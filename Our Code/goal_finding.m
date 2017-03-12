@@ -20,7 +20,7 @@ to_goal(1) = sqrt((-rpos(2) + robot_goal(2))^2 + (-rpos(1) + robot_goal(1))^2);
 worldGoalAng = atan2((robot_goal(2)-rpos(2)),(robot_goal(1)-rpos(1)));
 
 if  2*pi> rpos(3) && rpos(3)>= pi
-    if rpos(3)> worldGoalAng && worldGoalAng >= rpos(3)-pi;
+    if rpos(3)> worldGoalAng && worldGoalAng >= rpos(3)-pi
         to_goal(2) = worldGoalAng - rpos(3);
     else
         to_goal(2) = worldGoalAng + 2*pi - rpos(3); 

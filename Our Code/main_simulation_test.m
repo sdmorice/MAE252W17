@@ -7,6 +7,7 @@ close all
 %define robot information 
 range = 500;
 ns = 10;
+iter = 0;
 
 
 %initial positon
@@ -34,7 +35,7 @@ drawnow;
 %% Robot Moving Loop
 
 while ~goalReached
-    
+    iter = iter + 1;
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
     
     
@@ -55,6 +56,13 @@ while ~goalReached
     [rpos, hit] = Rotate(rpos, alpha_r, grid_map);
     rpos =  drive(rpos, grid_map, hit, robot_goal);
     
+    x_save(iter) = rpos(1);
+    y_save(iter) = rpos(2);
+    
+    plot(y_save, x_save);
+    pause(0.01)
+
+    
 end
 
 %stop timer 
@@ -63,3 +71,11 @@ disp(timeRun);
 
 %save plot as figure 
 saveas(figure1,'plot.jpg'); 
+
+%%plot the path
+dist = 0;
+for j = 1:iter
+
+    distj = sqrt((x_save(j+1) - x_save(j))^2 + (y_save(j+1) - y_save(j))^2);
+    dist = distj + dist;
+end

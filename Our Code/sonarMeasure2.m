@@ -141,6 +141,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = pi*2;
                     end
                     
+
                    %specularAng = pi/2;
                    
                    specularAng = specularSurface(surface, worldAng, rAngle);
