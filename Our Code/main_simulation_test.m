@@ -27,7 +27,7 @@ k = 0;
 tic 
 
 %map definition 
-grid_map= color_gry('group_outline_paint.png');
+grid_map= color_gry('group_outline_paint_open.png');
 
 %plot robot
 draw_bot(rpos, grid_map);

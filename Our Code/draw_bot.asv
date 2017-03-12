@@ -1,4 +1,4 @@
-function [outline_x, outline_y, hit, rel_hit] = draw_bot(rpos, grid_map)
+function [outline_x, outline_y, hit, theta] = draw_bot(rpos, grid_map)
 
 % Written by Stalefish
 
@@ -47,8 +47,6 @@ y_end_3 = outline_y(1);
 outline_x = [outline_x x_end_1 x_end_2 x_end_3];
 outline_y = [outline_y y_end_1 y_end_2 y_end_3];
 
-rel_hit = 0;
-
 
 for i = 1:length(outline_y)
     if(outline_y(i) < 0)
@@ -67,22 +65,22 @@ for i = 1:length(outline_y)
         dist_y = outline_y(i)-rpos(2);
         
         %calculate the angle of the object relative to world map
-        theta_hit = tan(dist_y/dist_x); 
+        theta = tan(dist_y/dist_x); 
             if  2*pi> rpos(3) && rpos(3)>= pi
-                if rpos(3)> theta_hit && theta_hit >= rpos(3)-pi
-                    rel_hit = theta_hit - rpos(3);
+                if rpos(3)> worldGoalAng && worldGoalAng >= rpos(3)-pi
+                    to_goal(2) = worldGoalAng - rpos(3);
                 else
-                    rel_hit = theta_hit + 2*pi - rpos(3); 
+                    to_goal(2) = worldGoalAng + 2*pi - rpos(3); 
                 end
             elseif  pi> rpos(3) && rpos(3) >= 0
-               if rpos(3)+ pi > theta_hit && rpos(3) > theta_hit
-                   rel_hit = theta_hit - rpos(3);
+               if rpos(3)+ pi > worldGoalAng && rpos(3) > worldGoalAng
+                   to_goal(2) = worldGoalAng - rpos(3);
                else
-                   rel_hit = theta_hit - 2*pi - rpos(3);
+                   to_goal(2) = worldGoalAng - 2*pi - rpos(3);
                end
             end        
         
-%         hold
+        hold
         break;    
         
         

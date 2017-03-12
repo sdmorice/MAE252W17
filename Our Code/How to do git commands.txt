@@ -1,0 +1,6 @@
+To get the stuff
+- git pull
+To give the stuff
+git add . (period means push whole directory)
+git commit -m "whatever you want to type"
+git push 
