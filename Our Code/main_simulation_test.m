@@ -7,7 +7,7 @@ close all
 hold all;
 
 %define robot information 
-range = 500;
+range = 500 + 30;
 ns = 10;
 iter = 0;
 
