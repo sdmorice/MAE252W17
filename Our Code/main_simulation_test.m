@@ -7,20 +7,22 @@ close all
 %define robot information 
 range = 500;
 ns = 10;
+iter = 0;
 
 
 %initial positon
 rpos = [720, 60, pi/2];
+%rpos = [200, 1000, pi/2];
 goalReached = 0;
 
 %goal locations
 goal_1 = [60, 800];
-goal_2 = [680, 1340]; 
+goal_2 = [715, 652]; 
 robot_goal = goal_1;
 k = 0;
 
 %map definition 
-grid_map= color_gry('group_outline_paint.png');
+grid_map= color_gry('group_outline_goal_test.png');
 
 %plot robot
 draw_bot(rpos, grid_map);
@@ -30,8 +32,10 @@ drawnow;
 %% Robot Moving Loop
 
 while ~goalReached
-    
+    iter = iter + 1;
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
+    
+    
 
     
     [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
@@ -45,10 +49,23 @@ while ~goalReached
         end
     end
     
+    alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);      
+    [rpos, hit] = Rotate(rpos, alpha_r, grid_map);
+    rpos =  drive(rpos, grid_map, hit, robot_goal);
     
+    x_save(iter) = rpos(1);
+    y_save(iter) = rpos(2);
+    
+    plot(y_save, x_save);
+    pause(0.01)
 
-    alpha_r = rebound_angle(sonarDist, ns);      
-    rpos = Rotate(rpos, alpha_r, grid_map);
-    rpos =  drive(rpos, grid_map);
     
+end
+
+
+dist = 0;
+for j = 1:iter
+
+    distj = sqrt((x_save(j+1) - x_save(j))^2 + (y_save(j+1) - y_save(j))^2);
+    dist = distj + dist;
 end

@@ -93,18 +93,20 @@ for i = max([round(minX) 1]): min([round(maxX) m])
 %            | 0
 %            |            
 %            |            
-%    pi/2    |          - pi/2 
+%    pi/2    |           pi/2 
 %   ---------|----------               
         
+            
+
             relAng = worldAng - rAngle;
 %bodyAng
-%            | pi/2
+%            | pi
 %            |            
 %            |            
-%    pi      |            
+%    pi/2    |            
 %   ---------|---------- 0                 
             
-            bodyAng = pi/2+relAng;
+            bodyAng
     
 %            if bodyAng>= 2*pi
 %                bodyAng = bodyAng-(2*pi);
@@ -141,9 +143,7 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = pi*2;
                     end
                     
-%                    specularAng = pi/2;
-                   
-                   specularAng = specularSurface(surface, worldAng, rAngle);
+                   specularAng = pi/2;%specularSurface(surface, worldAng, rAngle);
                                         %get the specular angle for the 
                                         %measurement
                     if distPt < 10 && distPt ~=0
@@ -152,12 +152,10 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         minDistArray(sonarPt) = distPt;
                      elseif specularAng <= 25/180*pi
                          minDistArray(sonarPt)= range;
-                         if (mapVal==50 || mapVal==150 || mapVal==100)
-                             fprintf(['Read specular surface at x = %d and',...
-                             'y = %d.  The specular angle hit the wall at',...
-                             '%f degrees when the robot was at angle%f', ... 
-                             'deg\n'],rx, ry, specularAng*180/pi, rAngle*180/pi);
-                         end
+                         fprintf(['Read specular surface at x = %d and',...
+                         'y = %d.  The specular angle hit the wall at',...
+                         '%f degrees when the robot was at angle%f', ... 
+                         'deg\n'],rx, ry, specularAng*180/pi, rAngle*180/pi);
                     end
                 end  
             end
@@ -256,7 +254,7 @@ elseif surface == pi/2
     
 elseif surface == obstacleAng
     
-    if worldAng >=0 && worldAng < pi/2
+    if worldAng >=0 && worldAng < C
         specularAng = pi/2 - (obstacleAng - worldAng);
     
     elseif worldAng >= 2*pi-obstacleAng && worldAng< 2*pi
