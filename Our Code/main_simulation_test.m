@@ -7,7 +7,7 @@ close all
 hold all;
 
 %define robot information 
-%adding 
+%adding robot radius 
 range = 200 + 30;
 ns = 10;
 iter = 0;
@@ -83,4 +83,3 @@ for j = 1:iter-1
     dist = distj + dist;
 end
 
-dist
