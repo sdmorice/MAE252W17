@@ -93,18 +93,20 @@ for i = max([round(minX) 1]): min([round(maxX) m])
 %            | 0
 %            |            
 %            |            
-%    pi/2    |          - pi/2 
+%    pi/2    |           pi/2 
 %   ---------|----------               
         
+            
+
             relAng = worldAng - rAngle;
 %bodyAng
-%            | pi/2
+%            | pi
 %            |            
 %            |            
-%    pi      |            
+%    pi/2    |            
 %   ---------|---------- 0                 
             
-            bodyAng = pi/2+relAng;
+            bodyAng
     
 %            if bodyAng>= 2*pi
 %                bodyAng = bodyAng-(2*pi);
