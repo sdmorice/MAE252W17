@@ -48,7 +48,7 @@ while ~goalReached
     if goal_found
         robot_goal = goal_2; 
         k = k+1; 
-        disp(k);
+%         disp(k);
         if k >=2
             goalReached = 1; 
         end
@@ -69,7 +69,7 @@ end
 
 %stop timer 
 timeRun = toc; 
-disp(timeRun);
+fprintf('The simulation ran for %f seconds.\n',timeRun);
 
 % %save plot as figure 
 % saveas(figure1,'plot.jpg'); 
@@ -81,4 +81,4 @@ for j = 1:iter-1
     distj = sqrt((x_save(j+1) - x_save(j))^2 + (y_save(j+1) - y_save(j))^2);
     dist = distj + dist;
 end
-
+fprintf('The robot traveled %f cm.\n', dist)
