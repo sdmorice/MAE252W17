@@ -141,18 +141,18 @@ for i = max([round(minX) 1]): min([round(maxX) m])
                         surface = pi*2;
                     end
                     
-                   specularAng = pi/2;
+                   %specularAng = pi/2;
                    
-                   specularSurface(surface, worldAng, rAngle);
+                   specularAng = specularSurface(surface, worldAng, rAngle);
                                         %get the specular angle for the 
                                         %measurement
                     if distPt < 10 && distPt ~=0
                         minDistArray(sonarPt) = 10;                    
                     elseif specularAng > 25/180*pi
                         minDistArray(sonarPt) = distPt;
-                     elseif specularAng <= 25/180*pi
+                    elseif specularAng <= 25/180*pi
                          minDistArray(sonarPt)= range;
-                         if (mapVal==50 || mapVal==150 || mapval==100)
+                         if (mapVal==50 || mapVal==150 || mapVal==100)
                              fprintf(['Read specular surface at x = %d and',...
                              'y = %d.  The specular angle hit the wall at',...
                              '%f degrees when the robot was at angle%f', ... 

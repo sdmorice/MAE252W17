@@ -16,9 +16,12 @@ goalReached = 0;
 
 %goal locations
 goal_1 = [60, 800];
-goal_2 = [715, 652]; 
+goal_2 = [715, 1000]; 
 robot_goal = goal_1;
 k = 0;
+
+%start timer of the code
+tic 
 
 %map definition 
 grid_map= color_gry('group_outline_goal_test.png');
@@ -53,3 +56,10 @@ while ~goalReached
     rpos =  drive(rpos, grid_map, hit, robot_goal);
     
 end
+
+%stop timer 
+timeRun = toc; 
+disp(timeRun);
+
+%save plot as figure 
+saveas(figure1,'plot.jpg'); 
