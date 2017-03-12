@@ -10,7 +10,7 @@ ns = 10;
 
 %initial positon
 % rpos = [720, 60, pi/2];
-rpos = [200, 1000, pi/2];
+rpos = [700, 700, 7*pi/4];
 goalReached = 0;
 
 %goal locations
@@ -31,18 +31,18 @@ k = 1;
 disp(sonarDist);
 
 alpha_r = rebound_angle(sonarDist,ns, rpos, robot_goal);
-rpos = Rotate(rpos, alpha_r, grid_map);
-
-disp('rebound angle = '); 
-disp(alpha_r);
-disp('new rpos = ');
-disp(rpos);
-
-rpos =  drive(rpos, grid_map);
-
-disp('new rpos = ');
-disp(rpos);
-
+% rpos = Rotate(rpos, alpha_r, grid_map);
+% 
+% disp('rebound angle = '); 
+% disp(alpha_r);
+% disp('new rpos = ');
+% disp(rpos);
+% 
+% rpos =  drive(rpos, grid_map);
+% 
+% disp('new rpos = ');
+% disp(rpos);
+% 
 figure(2);
 bar(sonarDist);
 title(pi/2);
