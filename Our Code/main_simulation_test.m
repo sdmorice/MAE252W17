@@ -33,6 +33,8 @@ drawnow;
 while ~goalReached
     
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
+    
+    
 
     
     [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);
