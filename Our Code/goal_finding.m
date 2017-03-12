@@ -39,7 +39,7 @@ end
 
 %check if essentially reached goal
 
-if to_goal(1) < 12
+if to_goal(1) < 30
     goal_found = 1; 
 else 
     goal_found = 0;
