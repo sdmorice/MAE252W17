@@ -1,4 +1,4 @@
-function new_posn =  drive(posn, grid_map)
+function new_posn =  drive(posn, grid_map, hit, robot_goal)
 %% Written by Magnum
 %Inputs: posn    (posn of robot)
 %        
