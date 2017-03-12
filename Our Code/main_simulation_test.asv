@@ -6,8 +6,7 @@ close all
 
 hold all;
 
-global hit_counter
-hit_counter = 0;
+g
 %define robot information 
 range = 500 + 30;
 ns = 10;
@@ -83,4 +82,4 @@ for j = 1:iter-1
     distj = sqrt((x_save(j+1) - x_save(j))^2 + (y_save(j+1) - y_save(j))^2);
     dist = distj + dist;
 end
-disp(hit_counter);
+

@@ -13,6 +13,8 @@ function new_posn =  drive(posn, grid_map, hit, robot_goal)
 
 
 %% The goods
+global hit_counter
+
 d = 10; %distance robot travels per reading (cm)
 old_posn_x = posn(1); %origninal x coordinate position
 old_posn_y = posn(2); %original y coordinate position
@@ -30,9 +32,10 @@ for i=1:d_step:d
     new_posn(2) = old_posn_y + i*d_step*sin(theta);
    [outline_x, outline_y, hit, rel_hit] =draw_bot(new_posn, grid_map);
        if hit ==1
+           hit_counter = hit_counter+1;
             old_posn_x_hit = new_posn(1);
             old_posn_y_hit = new_posn(2);
-            turn = sign(rel_hit); %turn the opposite direction in which
+            turn = -sign(rel_hit); %turn the opposite direction in which
 %                                    the wall was hit            
             
             if abs(rel_hit) <= pi/2
