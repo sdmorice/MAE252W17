@@ -19,7 +19,7 @@ goalReached = 0;
 
 %goal locations
 goal_1 = [60, 800];
-goal_2 = [715, 1300]; 
+goal_2 = [650, 1300]; 
 robot_goal = goal_1;
 k = 0;
 
@@ -27,7 +27,7 @@ k = 0;
 tic 
 
 %map definition 
-grid_map= color_gry('group_outline_paint.png');
+grid_map= color_gry('group_outline_paint_a_variation.png');
 
 %plot robot
 draw_bot(rpos, grid_map);
@@ -71,8 +71,8 @@ end
 timeRun = toc; 
 disp(timeRun);
 
-%save plot as figure 
-saveas(figure1,'plot.jpg'); 
+% %save plot as figure 
+% saveas(figure1,'plot.jpg'); 
 
 %%plot the path
 dist = 0;
@@ -81,3 +81,5 @@ for j = 1:iter
     distj = sqrt((x_save(j+1) - x_save(j))^2 + (y_save(j+1) - y_save(j))^2);
     dist = distj + dist;
 end
+
+dist
