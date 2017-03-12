@@ -4,6 +4,8 @@ clear
 clc
 close all
 
+hold all;
+
 %define robot information 
 range = 500;
 ns = 10;
@@ -17,7 +19,7 @@ goalReached = 0;
 
 %goal locations
 goal_1 = [60, 800];
-goal_2 = [715, 1000]; 
+goal_2 = [715, 1300]; 
 robot_goal = goal_1;
 k = 0;
 
@@ -25,7 +27,7 @@ k = 0;
 tic 
 
 %map definition 
-grid_map= color_gry('group_outline_goal_test.png');
+grid_map= color_gry('group_outline_paint.png');
 
 %plot robot
 draw_bot(rpos, grid_map);
