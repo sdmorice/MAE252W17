@@ -6,17 +6,10 @@ close all
 
 hold all;
 
-global hit_counter
-hit_counter = 0;
+g
 %define robot information 
-<<<<<<< HEAD
-range = 300 + 30;
-ns = 8;
-=======
-%adding robot radius 
-range = 200 + 30;
+range = 500 + 30;
 ns = 10;
->>>>>>> 319357f2c13b0db1d76e25e96c7064a517a961cb
 iter = 0;
 
 
@@ -56,7 +49,7 @@ while ~goalReached
     if goal_found
         robot_goal = goal_2; 
         k = k+1; 
-%         disp(k);
+        disp(k);
         if k >=2
             goalReached = 1; 
         end
@@ -77,7 +70,7 @@ end
 
 %stop timer 
 timeRun = toc; 
-fprintf('The simulation ran for %f seconds.\n',timeRun);
+disp(timeRun);
 
 % %save plot as figure 
 % saveas(figure1,'plot.jpg'); 
@@ -90,6 +83,3 @@ for j = 1:iter-1
     dist = distj + dist;
 end
 
-fprintf('The robot traveled %f cm.\n', dist)
-
-disp(hit_counter);
