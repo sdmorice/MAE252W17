@@ -16,12 +16,12 @@ goalReached = 0;
 
 %goal locations
 goal_1 = [60, 800];
-goal_2 = [680, 1340]; 
-robot_goal = goal_2;
+goal_2 = [715, 652]; 
+robot_goal = goal_1;
 k = 0;
 
 %map definition 
-grid_map= color_gry('group_outline_white.png');
+grid_map= color_gry('group_outline_goal_test.png');
 
 %plot robot
 draw_bot(rpos, grid_map);
