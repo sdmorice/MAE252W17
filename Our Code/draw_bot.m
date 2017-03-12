@@ -54,7 +54,7 @@ for i = 1:length(outline_y)
     if(outline_y(i) < 0)
         hit = 1;
         disp('out')
-    elseif(grid_map(round(outline_x(i)),round(outline_y(i))) == 0)
+    elseif(grid_map(round(outline_x(i)),round(outline_y(i))) ~= 255)
         %if so, return 1
         hit = 1;
         %disp('hit')
