@@ -32,7 +32,7 @@ for i=1:d_step:d
        if hit ==1
             old_posn_x_hit = new_posn(1);
             old_posn_y_hit = new_posn(2);
-            turn = -1*sign(rel_hit); %turn the opposite direction in which
+            turn = sign(rel_hit); %turn the opposite direction in which
 %                                    the wall was hit            
             
             if abs(rel_hit) <= pi/2
