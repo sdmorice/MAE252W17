@@ -27,7 +27,7 @@ if  2*pi> rpos(3) && rpos(3)>= pi
         to_goal(2) = worldGoalAng + 2*pi - rpos(3); 
     end
 elseif  pi> rpos(3) && rpos(3) >= 0
-   if rpos(3)+ pi > worldGoalAng && rpos(3) > worldGoalAng
+   if rpos(3)+ pi > worldGoalAng && worldGoalAng > 0
        to_goal(2) = worldGoalAng - rpos(3);
    else
        to_goal(2) = worldGoalAng - 2*pi - rpos(3);
