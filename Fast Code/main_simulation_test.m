@@ -6,16 +6,17 @@ close all
 
 hold all;
 
-global hit_counter time_counter hit_challenge
+global hit_counter
 hit_counter = 0;
-hit_challenge = 0;
-% time_counter = 0;
 %define robot information 
 
 
-range = 500+ 30;
-ns = 16;
+range = 500 + 30;
+ns = 8;
+
 iter = 0;
+
+time = 0;
 
 %initial positon
 rpos = [720, 60, pi/2];
@@ -35,13 +36,13 @@ tic
 grid_map= color_gry('prescribed_course.png');
 
 %plot robot
-draw_bot(rpos, grid_map);
-drawnow;
+% draw_bot(rpos, grid_map);
+% drawnow;
 
 
 %% Robot Moving Loop
 
-while ~goalReached
+while ~goalReached && time < 240
     iter = iter + 1;
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
     
@@ -60,17 +61,23 @@ while ~goalReached
     end
     
     alpha_r = rebound_angle(sonarDist, ns, rpos, robot_goal);      
-    [rpos, hit] = Rotate(rpos, alpha_r, grid_map);
+    [rpos, hit, steps] = Rotate(rpos, alpha_r, grid_map);
+    time = time + 0.01*steps;
     rpos =  drive(rpos, grid_map, hit, robot_goal);
+    time = time + 0.05;
     
     x_save(iter) = rpos(1);
     y_save(iter) = rpos(2);
     
-    plot(y_save, x_save);
+%     plot(y_save, x_save);
 %     pause(0.01)
 
     
 end
+
+draw_bot(rpos, grid_map);
+plot(y_save, x_save);
+
 
 %stop timer 
 timeRun = toc; 
@@ -90,7 +97,3 @@ end
 fprintf('The robot traveled %f cm.\n', dist)
 
 disp(hit_counter);
-if hit_challenge == 1 
-    fprintf('dumbass robot drove into that one spot \n');
-end
-% fprintf('time of simulation %f', time_counter*.01);
