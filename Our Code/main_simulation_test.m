@@ -12,6 +12,7 @@ hit_counter = 0;
 
 range = 300 + 30;
 ns = 16;
+iter = 0;
 
 %initial positon
 rpos = [720, 60, pi/2];

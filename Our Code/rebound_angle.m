@@ -28,10 +28,10 @@ for i = 1:ns
 end
 
  %goal weighting
- k = 8000;
+ k = 2000;
 
 [to_goal, goalfound] = goal_finding(rpos, robot_goal);
-num_sum = num_sum + to_goal(2)*k/to_goal(1);
+num_sum = num_sum + to_goal(2)*k/sqrt(to_goal(1));
 den_sum = den_sum + k/to_goal(1); 
 
 %Calculattng the rebound angle
