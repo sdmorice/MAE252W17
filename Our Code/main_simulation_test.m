@@ -10,8 +10,8 @@ global hit_counter
 hit_counter = 0;
 %define robot information 
 
-range = 300 + 30;
-ns = 16;
+range = 100+ 30;
+ns = 8;
 iter = 0;
 
 %initial positon
@@ -21,7 +21,7 @@ goalReached = 0;
 
 %goal locations
 goal_1 = [60, 800];
-goal_2 = [650, 1300]; 
+goal_2 = [600, 1380]; 
 robot_goal = goal_1;
 k = 0;
 
@@ -29,7 +29,7 @@ k = 0;
 tic 
 
 %map definition 
-grid_map= color_gry('group_outline_paint_a_variation.png');
+grid_map= color_gry('prescribed_course.png');
 
 %plot robot
 draw_bot(rpos, grid_map);
