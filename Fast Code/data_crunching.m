@@ -46,7 +46,7 @@ hold off
 
 figure(3)
 hold on
-plot(range, hits_vs_range_ns8)
+plot(range, hit_vs_range_ns8)
 hold off
 
 %% 10 Sensors
@@ -83,7 +83,7 @@ hold off
 
 figure(3)
 hold on
-plot(range, hits_vs_range_ns10)
+plot(range, hit_vs_range_ns10)
 hold off
 
 %% 12 Sensors
@@ -120,7 +120,7 @@ hold off
 
 figure(3)
 hold on
-plot(range, hits_vs_range_ns12)
+plot(range, hit_vs_range_ns12)
 hold off
 
 
@@ -161,7 +161,7 @@ hold off
 
 figure(3)
 hold on
-plot(range, hits_vs_range_ns14)
+plot(range, hit_vs_range_ns14)
 hold off
 
 
@@ -201,22 +201,22 @@ hold off
 
 figure(3)
 hold on
-plot(range, hits_vs_range_ns16)
+plot(range, hit_vs_range_ns16)
 hold off
 
  %% Plot crap
-% 
-% figure(1)
-% xlabel('Range normalized by 600 cm')
-% ylabel('Time to goal (sec)')
-% legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
-% 
-% figure(2)
-% xlabel('Range normalized by 600 cm')
-% ylabel('Distance traveled (cm)')
-% legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
-% 
-% figure(3)
-% xlabel('Range normalized by 600 cm')
-% ylabel('Robot hits')
-% legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
+
+figure(1)
+xlabel('Range normalized by 600 cm')
+ylabel('Time to goal (sec)')
+legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
+
+figure(2)
+xlabel('Range normalized by 600 cm')
+ylabel('Distance traveled (cm)')
+legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
+
+figure(3)
+xlabel('Range normalized by 600 cm')
+ylabel('Robot hits')
+legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
