@@ -21,6 +21,7 @@ function [new_posn, hit] = Rotate(posn, alpha_r, grid_map)
 %                           ++++|++++               
 %    ------------------------------------------------------
 %% The goods
+global time_counter
 hit = 0;
 new_posn = posn;
 old_angle = posn(3);
@@ -50,7 +51,7 @@ for i = 1:steps
         elseif new_posn(3) < 0
             new_posn(3) = 2*pi+new_posn(3);
         end
-        
+        time_counter = time_counter + 1;
         [x,y,hit]=draw_bot(new_posn, grid_map);
 % %Object hits something Clause         
 %         if hit ==1
@@ -60,6 +61,7 @@ for i = 1:steps
     
     else
         new_posn(3) = final_angle;
+        time_counter = time_counter + 1;
         [x,y,hit]=draw_bot(new_posn, grid_map);
         
 %  %Object hits something Clause       
