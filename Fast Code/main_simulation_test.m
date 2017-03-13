@@ -6,13 +6,13 @@ close all
 
 hold all;
 
-global hit_counter
+global hit_counter hit_challenge
 hit_counter = 0;
 %define robot information 
 
 
-range = 500 + 30;
-ns = 8;
+range = 200 + 30;
+ns = 16;
 
 iter = 0;
 
@@ -95,5 +95,7 @@ for j = 1:iter-1
 end
 
 fprintf('The robot traveled %f cm.\n', dist)
-
-disp(hit_counter);
+fprintf('Robot went full retard %d times \n', hit_counter);
+if hit_challenge ==1
+    fprintf('It hit the difficult region \n');
+end

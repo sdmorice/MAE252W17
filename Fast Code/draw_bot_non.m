@@ -8,6 +8,7 @@ function [outline_x, outline_y, hit, rel_hit] = draw_bot_non(rpos, grid_map)
 % 
 % hold on;
 
+global hit_challenge
 hit = 0; 
 
 rad = 60/2; % Radius of the robot nose
@@ -54,7 +55,7 @@ for i = 1:length(outline_y)
     if(round(outline_y(i)) < 0) || (round(outline_x(i)) < 0)
         hit = 1;
         disp('out')
-%         
+%%        Shit doesn't work yo
 %          %calculating the point of the robot that was hit
 %         x_hit = outline_x(i);
 %         y_hit = outline_y(i);
@@ -81,6 +82,7 @@ for i = 1:length(outline_y)
 %         
 % %         hold
 %         break; 
+%%
     elseif(grid_map(round(outline_x(i)),round(outline_y(i))) ~= 255)
         %if so, return 1
         hit = 1;
@@ -88,6 +90,10 @@ for i = 1:length(outline_y)
                 %calculating the point of the robot that was hit
         x_hit = outline_x(i);
         y_hit = outline_y(i);
+        
+        if 377 >= x_hit && x_hit >=343 && 1037 >= y_hit && y_hit>= 985
+            hit_challenge = 1;
+        end        
         
         %find location of hit relative to the robot center
         dist_x = outline_x(i)-rpos(1);
