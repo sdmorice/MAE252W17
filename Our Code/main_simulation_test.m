@@ -6,14 +6,15 @@ close all
 
 hold all;
 
-global hit_counter
+global hit_counter time_counter hit_challenge
 hit_counter = 0;
+hit_challenge = 0;
+% time_counter = 0;
 %define robot information 
 
 
-range = 600+ 30;
-ns = 8;
-
+range = 500+ 30;
+ns = 16;
 iter = 0;
 
 %initial positon
@@ -66,7 +67,7 @@ while ~goalReached
     y_save(iter) = rpos(2);
     
     plot(y_save, x_save);
-    pause(0.01)
+%     pause(0.01)
 
     
 end
@@ -89,3 +90,7 @@ end
 fprintf('The robot traveled %f cm.\n', dist)
 
 disp(hit_counter);
+if hit_challenge == 1 
+    fprintf('dumbass robot drove into that one spot \n');
+end
+% fprintf('time of simulation %f', time_counter*.01);

@@ -13,7 +13,7 @@ function new_posn =  drive(posn, grid_map, hit, robot_goal)
 
 
 %% The goods
-global hit_counter
+global hit_counter time_counter
 
 d = 10; %distance robot travels per reading (cm)
 old_posn_x = posn(1); %origninal x coordinate position
@@ -31,8 +31,10 @@ for i=1:d_step:d
     new_posn(1) = old_posn_x + i*d_step*cos(theta);
     new_posn(2) = old_posn_y + i*d_step*sin(theta);
    [outline_x, outline_y, hit, rel_hit] =draw_bot(new_posn, grid_map);
+   time_counter = time_counter + 1;
        if hit ==1
            hit_counter = hit_counter+1;
+           
             old_posn_x_hit = new_posn(1);
             old_posn_y_hit = new_posn(2);
             turn = -sign(rel_hit); %turn the opposite direction in which
@@ -41,8 +43,9 @@ for i=1:d_step:d
             if abs(rel_hit) <= pi/2
                 for j=1: d_step: 10
                     new_posn(1) = old_posn_x_hit - j*d_step*cos(theta);
-                    new_posn(2) = old_posn_y_hit - j*d_step*sin(theta);
+                     new_posn(2) = old_posn_y_hit - j*d_step*sin(theta);
                     draw_bot(new_posn, grid_map);
+                    time_counter = time_counter + 1;      
                     pause(t_step)
 
                 end
@@ -52,7 +55,8 @@ for i=1:d_step:d
                   for j=1:d_step: 4
                         new_posn(1) = old_posn_x_hit + j*d_step*cos(theta);
                         new_posn(2) = old_posn_y_hit + j*d_step*sin(theta);
-                        draw_bot(new_posn, grid_map);   
+                        draw_bot(new_posn, grid_map); 
+                        time_counter = time_counter + 1;
                         pause(t_step)
                   end
               break
