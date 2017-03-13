@@ -10,8 +10,10 @@ global hit_counter
 hit_counter = 0;
 %define robot information 
 
+
 range = 100 + 30;
 ns = 4;
+
 iter = 0;
 
 %initial positon
