@@ -13,10 +13,6 @@ hit_counter = 0;
 range = 300 + 30;
 ns = 16;
 
-%adding robot radius 
-iter = 0;
-
-
 %initial positon
 rpos = [720, 60, pi/2];
 %rpos = [200, 1000, pi/2];
@@ -53,7 +49,7 @@ while ~goalReached
     if goal_found
         robot_goal = goal_2; 
         k = k+1; 
-%         disp(k);
+        disp(k);
         if k >=2
             goalReached = 1; 
         end
