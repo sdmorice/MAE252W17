@@ -169,7 +169,7 @@ end
 %get rid of placeholder values 
 for i = 1:length(minDistArray)
     if minDistArray(i) == 20000
-        minDistArray(i) = 0;
+        minDistArray(i) = range;
     end
 end
 
