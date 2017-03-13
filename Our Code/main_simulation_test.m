@@ -8,14 +8,10 @@ hold all;
 
 global hit_counter
 hit_counter = 0;
-%define robot information 
-
-range = 300 + 30;
-ns = 2;
 
 %adding robot radius 
-range = 200 + 30;
-ns = 10;
+range = 500 + 30;
+ns = 8;
 iter = 0;
 
 
@@ -55,7 +51,7 @@ while ~goalReached
     if goal_found
         robot_goal = goal_2; 
         k = k+1; 
-%         disp(k);
+        disp(k);
         if k >=2
             goalReached = 1; 
         end
