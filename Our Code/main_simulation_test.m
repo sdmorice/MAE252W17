@@ -10,8 +10,9 @@ global hit_counter
 hit_counter = 0;
 %define robot information 
 
-range = 300 + 30;
-ns = 16;
+range = 100 + 30;
+ns = 4;
+iter = 0;
 
 %initial positon
 rpos = [720, 60, pi/2];
@@ -41,7 +42,7 @@ while ~goalReached
     iter = iter + 1;
     [sonarDist, goalSighted, goalReached] = sonarMeasure2(grid_map, rpos, ns, range);
     
-    
+    sonarDist;
 
     
     [dist_to_goal, goal_found] = goal_finding(rpos, robot_goal);

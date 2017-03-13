@@ -18,7 +18,7 @@ goal_found = 0;
 to_goal(1) = sqrt((-rpos(2) + robot_goal(2))^2 + (-rpos(1) + robot_goal(1))^2);
 
 %world angle
-worldGoalAng = atan2((robot_goal(2)-rpos(2)),(robot_goal(1)-rpos(1)));
+worldGoalAng = atan2((robot_goal(2)-rpos(2)), (robot_goal(1)-rpos(1)));
 
 if  2*pi> rpos(3) && rpos(3)>= pi
     if 2*pi> worldGoalAng && worldGoalAng >= rpos(3)-pi
