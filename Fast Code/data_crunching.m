@@ -54,21 +54,22 @@ hold off
 % dist_vs_range_ns12 = [3760 3262 3168 3186 4798 3198];
 % hits_vs_range_ns12 = [5 5 1 1 25 1];
 
+
 dist_vs_range_ns10 = zeros(1, 6);
 dist_vs_range_ns10(1, 1) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','B13');
 dist_vs_range_ns10(1, 2) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','B26');
-dist_vs_range_ns10(1, 3) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','F13');
-dist_vs_range_ns10(1, 4) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','F26');
-dist_vs_range_ns10(1, 5) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','J13');
-dist_vs_range_ns10(1, 6) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','J26');
+dist_vs_range_ns10(1, 3) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','G13');
+dist_vs_range_ns10(1, 4) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','G26');
+dist_vs_range_ns10(1, 5) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','L13');
+dist_vs_range_ns10(1, 6) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','L26');
 
 hit_vs_range_ns10 = zeros(1, 6);
 hit_vs_range_ns10(1, 1) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','C13');
 hit_vs_range_ns10(1, 2) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','C26');
 hit_vs_range_ns10(1 ,3) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','G13');
 hit_vs_range_ns10(1, 4) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','G26');
-hit_vs_range_ns10(1, 5) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','H13');
-hit_vs_range_ns10(1, 6) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','H26');
+hit_vs_range_ns10(1, 5) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','M13');
+hit_vs_range_ns10(1, 6) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','M26');
 
 % figure(1)
 % hold on
@@ -103,8 +104,8 @@ hit_vs_range_ns12(1) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','C1
 hit_vs_range_ns12(2) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','C26');
 hit_vs_range_ns12(3) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','G13');
 hit_vs_range_ns12(4) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','G26');
-hit_vs_range_ns12(5) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','H13');
-hit_vs_range_ns12(6) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','H26');
+hit_vs_range_ns12(5) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','K13');
+hit_vs_range_ns12(6) = xlsread('MAE252W17-Robot Data_test.xlsx','12 Sensors','K26');
 
 
 % figure(1)
@@ -137,6 +138,7 @@ dist_vs_range_ns14(3) = xlsread('MAE252W17-Robot Data_test.xlsx','14 Sensors','G
 dist_vs_range_ns14(4) = xlsread('MAE252W17-Robot Data_test.xlsx','14 Sensors','G26');
 dist_vs_range_ns14(5) = xlsread('MAE252W17-Robot Data_test.xlsx','14 Sensors','L13');
 dist_vs_range_ns14(6) = xlsread('MAE252W17-Robot Data_test.xlsx','14 Sensors','L26');
+
 
 hit_vs_range_ns14 = zeros(1, 6);
 hit_vs_range_ns14(1) = xlsread('MAE252W17-Robot Data_test.xlsx','14 Sensors','C13');

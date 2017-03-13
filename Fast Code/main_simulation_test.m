@@ -8,11 +8,12 @@ hold all;
 
 global hit_counter hit_challenge
 hit_counter = 0;
+hit_challenge = 0;
 %define robot information 
 
 
-range = 200 + 30;
-ns = 16;
+range = 100 + 30;
+ns = 10;
 
 iter = 0;
 
