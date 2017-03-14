@@ -207,16 +207,19 @@ hold off
  %% Plot crap
 
 figure(1)
-xlabel('Range normalized by 600 cm')
+%xlabel('Range normalized by 600 cm')
+xlabel('Range (cm)');
 ylabel('Time to goal (sec)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 figure(2)
-xlabel('Range normalized by 600 cm')
+%xlabel('Range normalized by 600 cm')
+xlabel('Range (cm)');
 ylabel('Distance traveled (cm)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 figure(3)
-xlabel('Range normalized by 600 cm')
+%xlabel('Range normalized by 600 cm')
+xlabel('Range (cm)');
 ylabel('Robot hits')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
