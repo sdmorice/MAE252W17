@@ -12,7 +12,7 @@ hit_challenge = 0;
 %define robot information 
 
 
-range = 100 + 30;
+range = 600 + 30;
 ns = 10;
 
 iter = 0;
