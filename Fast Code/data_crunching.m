@@ -4,10 +4,10 @@ close all
 clc
 
 range = 100:100:600;
-range = range./600; % Normalized
+%range = range./600; % Normalized
 
 sens = 4:4:16;
-sens = sens./16; % Normalized
+%sens = sens./16; % Normalized
 
 %% Excel read
 
@@ -66,8 +66,8 @@ dist_vs_range_ns10(1, 6) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors'
 hit_vs_range_ns10 = zeros(1, 6);
 hit_vs_range_ns10(1, 1) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','C13');
 hit_vs_range_ns10(1, 2) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','C26');
-hit_vs_range_ns10(1 ,3) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','G13');
-hit_vs_range_ns10(1, 4) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','G26');
+hit_vs_range_ns10(1 ,3) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','H13');
+hit_vs_range_ns10(1, 4) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','H26');
 hit_vs_range_ns10(1, 5) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','M13');
 hit_vs_range_ns10(1, 6) = xlsread('MAE252W17-Robot Data_test.xlsx','10 Sensors','M26');
 
@@ -209,14 +209,14 @@ hold off
 figure(1)
 xlabel('Range normalized by 600 cm')
 ylabel('Time to goal (sec)')
-legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
+legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 figure(2)
 xlabel('Range normalized by 600 cm')
 ylabel('Distance traveled (cm)')
-legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
+legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 figure(3)
 xlabel('Range normalized by 600 cm')
 ylabel('Robot hits')
-legend('8 Sensors', '12 Sensors', '16 Sensors', 'Location', 'best')
+legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
