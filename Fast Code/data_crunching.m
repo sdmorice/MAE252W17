@@ -212,13 +212,15 @@ hold off
 % legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 figure(1)
-xlabel('Range normalized by 600 cm')
-ylabel('Distance traveled (cm)')
+%xlabel('Range normalized by 600 cm')
+xlabel('Range (cm)');
+ylabel('Time to goal (sec)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 figure(2)
-xlabel('Range normalized by 600 cm')
-ylabel('Robot hits')
+%xlabel('Range normalized by 600 cm')
+xlabel('Range (cm)');
+ylabel('Distance traveled (cm)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 %% Plot Varied Sensors
@@ -230,6 +232,7 @@ dist_vs_sens_range100 = [dist_vs_range_ns8(1) dist_vs_range_ns10(1) dist_vs_rang
 hit_vs_sens_range100 = [hit_vs_range_ns8(1) hit_vs_range_ns10(1) hit_vs_range_ns12(1) hit_vs_range_ns14(1) hit_vs_range_ns16(1)];
 
 figure(3)
+
 hold on
 plot(sens, dist_vs_sens_range100)
 hold off
