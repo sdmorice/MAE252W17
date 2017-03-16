@@ -528,11 +528,11 @@ saveas(figure(8), 'dist_vs_range_no500.png')
 %plot of sensor number vs dist
 figure(9)
 hold on 
-plot(sens, std_dist_range100)
-plot(sens, std_dist_range200)
-plot(sens, std_dist_range300)
-plot(sens, std_dist_range400)
-plot(sens, std_dist_range600, 'c')
+plot(sens, dist_vs_sens_range100)
+plot(sens, dist_vs_sens_range200)
+plot(sens, dist_vs_sens_range300)
+plot(sens, dist_vs_sens_range400)
+plot(sens, dist_vs_sens_range600, 'c')
 
 xlabel('Number of Sensors')
 ylabel('Distance Traveled(cm)')
