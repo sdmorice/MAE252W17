@@ -6,6 +6,7 @@ clc
 range = 100:100:600;
 %range = range./600; % Normalized
 
+
 sens = 8:2:16;
 %sens = sens./16; % Normalized
 
@@ -25,6 +26,8 @@ dist_vs_range_ns8(3) = xlsread('MAE252W17-Robot Data_test-std_dev.xlsx','8 Senso
 dist_vs_range_ns8(4) = xlsread('MAE252W17-Robot Data_test-std_dev.xlsx','8 Sensors','F26');
 dist_vs_range_ns8(5) = xlsread('MAE252W17-Robot Data_test-std_dev.xlsx','8 Sensors','J13');
 dist_vs_range_ns8(6) = xlsread('MAE252W17-Robot Data_test-std_dev.xlsx','8 Sensors','J26');
+
+
 
 std_dist_ns8(1) = xlsread('MAE252W17-Robot Data_test-std_dev.xlsx','8 Sensors','B14');
 std_dist_ns8(2) = xlsread('MAE252W17-Robot Data_test-std_dev.xlsx','8 Sensors','B27');
@@ -498,3 +501,42 @@ xlabel('Number of Sensors')
 ylabel('Number of hits')
 legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
 saveas(figure(4), 'hits_vs_ns.png')
+
+%% Minus 500 data 
+range(500) = [];
+dist_vs_range_ns16(5) = [];
+dist_vs_range_ns14(5) = [];
+dist_vs_range_ns12(5) = [];
+dist_vs_range_ns10(5) = [];
+dist_vs_range_ns8(5) = [];
+
+%plot of range vs dist
+figure(8)
+hold on 
+plot(range, dist_vs_range_ns8)
+plot(range, dist_vs_range_ns10)
+plot(range, dist_vs_range_ns12)
+plot(range, dist_vs_range_ns14)
+plot(range, dist_vs_range_ns16)
+
+xlabel('Range (cm)')
+ylabel('Standard Deviation of Distance(cm)')
+legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
+hold off
+saveas(figure(8), 'dist_vs_range_no500.png')
+
+%plot of sensor number vs dist
+figure(9)
+hold on 
+plot(sens, std_dist_range100)
+plot(sens, std_dist_range200)
+plot(sens, std_dist_range300)
+plot(sens, std_dist_range400)
+plot(sens, std_dist_range600, 'c')
+
+xlabel('Number of Sensors')
+ylabel('Distance Traveled(cm)')
+legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
+hold off
+saveas(figure(9), 'dist_vs_ns_no500.png')
+
