@@ -329,7 +329,7 @@ legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Loc
 
 figure(2)
 %xlabel('Range normalized by 600 cm')
-xlabel('Range (cm)');
+xlabel('Hits');
 ylabel('Distance traveled (cm)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
