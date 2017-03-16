@@ -295,6 +295,7 @@ ylabel('Standard Deviation of the Distance(cm)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 hold off 
+saveas(figure5, 'stddev_dist_vs_ns.png')
 
 % %standard deviation of hits
 % figure(6)
@@ -326,12 +327,14 @@ figure(1)
 xlabel('Range (cm)');
 ylabel('Time to goal (sec)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
+saveas(figure1, 'dist_vs_ns.png')
 
 figure(2)
 %xlabel('Range normalized by 600 cm')
 xlabel('Hits');
 ylabel('Distance traveled (cm)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
+saveas(figure2, 'hits_vs_ns.png')
 
 %% Plot Varied Sensors
 
@@ -463,7 +466,7 @@ xlabel('Number of sensors')
 ylabel('Standard Deviation of Distance(cm)')
 legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
 hold off
-
+saveas(figure7, 'std_dist_vs_range.png')
 
 
 % figure(8)
@@ -485,11 +488,13 @@ hold off
 % Figure formatting
 
 figure(3)
-xlabel('Number of sensors')
+xlabel('Sensor Range (cm)')
 ylabel('Distance traveled (cm)')
 legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
+saveas(figure3, 'dist_vs_range.png')
 
 figure(4)
-xlabel('Number of sensors')
+xlabel('Sensor Range (cm)')
 ylabel('Robot hits')
 legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
+saveas(figure4, 'dist_vs_range.png')
