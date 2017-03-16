@@ -295,7 +295,7 @@ ylabel('Standard Deviation of the Distance(cm)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
 
 hold off 
-saveas(figure(5), 'stddev_dist_vs_ns.png')
+saveas(figure(5), 'stddev_dist_vs_range.png')
 
 % %standard deviation of hits
 % figure(6)
@@ -324,17 +324,17 @@ saveas(figure(5), 'stddev_dist_vs_ns.png')
 
 figure(1)
 %xlabel('Range normalized by 600 cm')
-xlabel('Number of Sensors');
+xlabel('Range (cm)');
 ylabel('Distance Traveled (cm)')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
-saveas(figure(1), 'dist_vs_ns.png')
+saveas(figure(1), 'dist_vs_range.png')
 
 figure(2)
 %xlabel('Range normalized by 600 cm')
-xlabel('Number of Sensors');
+xlabel('Range (cm)');
 ylabel('Number of Hits')
 legend('8 Sensors', '10 Sensors', '12 Sensors', '14 Sensors', '16 Sensors', 'Location', 'best')
-saveas(figure(2), 'hits_vs_ns.png')
+saveas(figure(2), 'hits_vs_range.png')
 
 %% Plot Varied Sensors
 
@@ -462,11 +462,11 @@ plot(sens, std_dist_range400)
 plot(sens, std_dist_range500)
 plot(sens, std_dist_range600)
 
-xlabel('Number of sensors')
+xlabel('Number of Sensors')
 ylabel('Standard Deviation of Distance(cm)')
 legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
 hold off
-saveas(figure(7), 'std_dist_vs_range.png')
+saveas(figure(7), 'std_dist_vs_ns.png')
 
 
 % figure(8)
@@ -488,13 +488,13 @@ saveas(figure(7), 'std_dist_vs_range.png')
 % Figure formatting
 
 figure(3)
-xlabel('Sensor Range (cm)')
+xlabel('Number of Sensors')
 ylabel('Distance traveled (cm)')
 legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
-saveas(figure(3), 'dist_vs_range.png')
+saveas(figure(3), 'dist_vs_ns.png')
 
 figure(4)
-xlabel('Sensor Range (cm)')
+xlabel('Number of Sensors')
 ylabel('Number of hits')
 legend('100 cm', '200 cm', '300 cm', '400 cm', '500 cm', '600 cm', 'Location', 'best')
-saveas(figure(4), 'hits_vs_range.png')
+saveas(figure(4), 'hits_vs_ns.png')
